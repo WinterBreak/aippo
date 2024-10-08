@@ -1,5 +1,5 @@
 enum UserType
 {
-    User = 0;
-    Admin = 1;
+    User = 0,
+    Admin = 1,
 }
