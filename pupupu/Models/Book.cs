@@ -9,4 +9,6 @@ public class Book
     public string Description { get; set; }
     
     public int AuthorId { get; set; }
+
+    public virtual Author Author { get; set; }
 }
