@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wG1ynA/J454=",
+  "dgSpecHash": "Nefi98E/7w9sMv43SwJ4Az74AlbbFtEqc4Ews9IUnpbcB9PPslsL5q8nzLaXyHfXbIQFmUvd42SlyydfkCP2hA==",
   "success": true,
   "projectFilePath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu/pupupu.csproj",
   "expectedPackageFiles": [
@@ -36,12 +36,5 @@
     "/Users/elizavetalozkina/.nuget/packages/system.text.encodings.web/6.0.0/system.text.encodings.web.6.0.0.nupkg.sha512",
     "/Users/elizavetalozkina/.nuget/packages/system.text.json/6.0.0/system.text.json.6.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
-    }
-  ]
+  "logs": []
 }
