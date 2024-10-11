@@ -14,8 +14,10 @@ builder.Services.AddDbContext<BookOrderSystemContext>(options =>
 
 // регистрация репозиториев 
 builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 // регистрация сервисов
 builder.Services.AddScoped<IBookServiceInterface, BookService>();
+builder.Services.AddScoped<IAdminPanelUserManagementService, AdminPanelUserManagementService>();
 
 var app = builder.Build();
 
