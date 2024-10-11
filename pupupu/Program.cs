@@ -1,12 +1,21 @@
 using Microsoft.EntityFrameworkCore;
 using pupupu.Common;
+using pupupu.Repositories;
+using pupupu.Repositories.Interfaces;
+using pupupu.Services;
+using pupupu.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// добавления сервисов в контейнер
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<BookOrderSystemContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty));
+
+// регистрация репозиториев 
+builder.Services.AddScoped<IBookRepository, BookRepository>();
+// регистрация сервисов
+builder.Services.AddScoped<IBookServiceInterface, BookService>();
 
 var app = builder.Build();
 
