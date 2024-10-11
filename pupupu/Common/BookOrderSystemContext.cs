@@ -1,9 +1,10 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using pupupu.Models;
 
 namespace pupupu.Common;
 
-public class BookOrderSystemContext: DbContext
+public class BookOrderSystemContext: IdentityDbContext<User>
 {
     public BookOrderSystemContext(DbContextOptions<BookOrderSystemContext> options)
         : base(options)
