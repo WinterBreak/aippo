@@ -4,11 +4,8 @@ using pupupu.Repositories.Interfaces;
 
 namespace pupupu.Repositories;
 
-// метобы — заглушки. реализовать. предлагаю тебе сделать это самой.
-// так познакомишься с linq
 public class BookRepository: IBookRepository
 {
-    // в каждом репозитории определяется объект контекста бд
     private readonly BookOrderSystemContext _dbContext;
 
     public BookRepository(BookOrderSystemContext dbContext)
@@ -18,31 +15,33 @@ public class BookRepository: IBookRepository
     
     public IQueryable<Book> GetAllBooks()
     {
-        throw new NotImplementedException();
+        return _dbContext.Books;
     }
 
     public Book GetBookById(int id)
     {
-        throw new NotImplementedException();
+        return _dbContext.Books.SingleOrDefault(b => b.Id == id);
     }
 
     public Book CreateBook()
     {
-        throw new NotImplementedException();
+        return new Book();
     }
 
     public void AddBook(Book book)
     {
-        throw new NotImplementedException();
+        _dbContext.Books.Add(book);
+        _dbContext.SaveChanges();
     }
 
     public void RemoveBook(Book book)
     {
-        throw new NotImplementedException();
+        _dbContext.Books.Remove(book);
+        _dbContext.SaveChanges();
     }
 
     public void SaveChanges()
     {
-        throw new NotImplementedException();
+        _dbContext.SaveChanges();
     }
 }

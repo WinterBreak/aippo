@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("pupupu")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+348ed1e837546a397a5561659b786687b970362a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+27fdec76ac217e489493a466825de3ae4cf7a0b8")]
 [assembly: System.Reflection.AssemblyProductAttribute("pupupu")]
 [assembly: System.Reflection.AssemblyTitleAttribute("pupupu")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
