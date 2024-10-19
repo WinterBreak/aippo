@@ -1,14 +1,10 @@
+using Microsoft.AspNetCore.Identity;
+
 namespace pupupu.Models;
 
-public class User
+public class User: IdentityUser
 {
-    public int Id { get; set; }
-
     public string Name { get; set; }
 
     public int UserType { get; set; }
-
-    public string Email { get; set; }
-
-    public string Password { get; set; }
 }

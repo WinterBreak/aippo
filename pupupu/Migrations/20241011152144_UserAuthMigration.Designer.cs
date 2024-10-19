@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using pupupu.Common;
 
@@ -10,9 +11,10 @@ using pupupu.Common;
 namespace pupupu.Migrations
 {
     [DbContext(typeof(BookOrderSystemContext))]
-    partial class BookOrderSystemContextModelSnapshot : ModelSnapshot
+    [Migration("20241011152144_UserAuthMigration")]
+    partial class UserAuthMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.0");
@@ -247,6 +249,7 @@ namespace pupupu.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("TEXT");
 
