@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using pupupu.Models;
+using pupupu.Models.DAL;
 using pupupu.ViewModels.User;
 
 namespace pupupu.Controllers;

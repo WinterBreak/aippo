@@ -1,0 +1,51 @@
+@model pupupu.ViewModels.User.UserList
+
+@{
+ViewData["Title"] = "Список пользователей";
+}
+
+<h2>Список пользователей</h2>
+
+<!-- Фильтр по типу пользователя -->
+<div class="form-group">
+    <label for="userTypeFilter">Тип пользователя:</label>
+    <select id="userTypeFilter" class="form-control">
+        <option value="Все">Все</option>
+        <option value="Администратор">Администратор</option>
+        <option value="Пользователь">Пользователь</option>
+    </select>
+</div>
+
+<!-- Кнопка "Добавить пользователя" -->
+<a asp-action="Create" class="btn btn-primary">Добавить пользователя</a>
+
+<!-- Таблица со списком пользователей -->
+<table class="table">
+    <thead>
+    <tr>
+        <th>Имя</th>
+        <th>Email</th>
+        <th>Тип пользователя</th>
+        <th>Действия</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var user in Model.Users)
+    {
+    <tr>
+        <td>@user.Name</td>
+        <td>@user.Email</td>
+        <td>@(user.UserType == (int)UserType.Admin ? "Администратор" : "Пользователь")</td>
+        <td>
+            <!-- Кнопки для редактирования и удаления -->
+            <a asp-action="EditUser" asp-route-id="@user.Id" class="btn btn-sm btn-warning" title="Редактировать">
+                <i class="fas fa-edit"></i>
+            </a>
+            <a asp-action="DeleteUser" asp-route-id="@user.Id" class="btn btn-sm btn-danger" title="Удалить">
+                <i class="fas fa-trash-alt"></i>
+            </a>
+        </td>
+    </tr>
+    }
+    </tbody>
+</table>

@@ -1,4 +1,4 @@
-namespace pupupu.Models;
+namespace pupupu.Models.DAL;
 
 public class BooksToOrderHistoryLinks
 {

@@ -1,5 +1,5 @@
 using pupupu.Common;
-using pupupu.Models;
+using pupupu.Models.DAL;
 using pupupu.Repositories.Interfaces;
 
 namespace pupupu.Repositories;
@@ -19,9 +19,9 @@ public class UserRepository: IUserRepository
         return _dbContext.Users;
     }
 
-    public User GetUserById(int id)
+    public User GetUserByEmail(string email)
     {
-        return _dbContext.Users.SingleOrDefault(u => u.Id == id);
+        return _dbContext.Users.SingleOrDefault(u => u.Email == email);
     }
 
     public User CreateUser()
@@ -32,13 +32,11 @@ public class UserRepository: IUserRepository
     public void AddUser(User user)
     {
         _dbContext.Users.Add(user);
-        _dbContext.SaveChanges();
     }
     
     public void RemoveUser(User user)
     {
         _dbContext.Remove(user);
-        _dbContext.SaveChanges();
     }
 
     public void SaveChanges()

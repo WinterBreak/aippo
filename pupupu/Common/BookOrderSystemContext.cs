@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using pupupu.Models;
+using pupupu.Models.DAL;
 
 namespace pupupu.Common;
 

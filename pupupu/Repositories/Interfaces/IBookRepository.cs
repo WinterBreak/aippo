@@ -1,4 +1,4 @@
-using pupupu.Models;
+using pupupu.Models.DAL;
 
 namespace pupupu.Repositories.Interfaces;
 

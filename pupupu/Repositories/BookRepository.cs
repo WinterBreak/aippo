@@ -1,5 +1,5 @@
 using pupupu.Common;
-using pupupu.Models;
+using pupupu.Models.DAL;
 using pupupu.Repositories.Interfaces;
 
 namespace pupupu.Repositories;
@@ -31,7 +31,7 @@ public class BookRepository: IBookRepository
     public void AddBook(Book book)
     {
         _dbContext.Books.Add(book);
-        _dbContext.SaveChanges();
+        _dbContext.SaveChanges(); // TODO убери потом. я протупила, так лучше не делать. будет много транзакций
     }
 
     public void RemoveBook(Book book)
