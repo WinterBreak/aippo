@@ -1,6 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using pupupu.Models;
+using pupupu.Models.DAL;
 
 namespace pupupu.Controllers;
 

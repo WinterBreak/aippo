@@ -1,4 +1,4 @@
-using pupupu.Models;
+using pupupu.Models.DAL;
 
 namespace pupupu.Repositories.Interfaces;
 
@@ -6,7 +6,7 @@ public interface IUserRepository
 {
     IQueryable<User> GetAllUsers();
     
-    User GetUserById(int id);
+    User GetUserByEmail(string email);
     
     void AddUser(User user);
     

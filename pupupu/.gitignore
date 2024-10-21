@@ -44,3 +44,4 @@
 *.vspx
 *.sap
 
+obj/

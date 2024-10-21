@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace pupupu.Models;
+namespace pupupu.Models.DAL;
 
 public class User: IdentityUser
 {

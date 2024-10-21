@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using pupupu.Common;
 using pupupu.Models;
+using pupupu.Models.DAL;
 using pupupu.Repositories;
 using pupupu.Repositories.Interfaces;
 using pupupu.Services;
