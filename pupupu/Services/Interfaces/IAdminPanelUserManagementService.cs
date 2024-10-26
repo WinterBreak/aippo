@@ -1,4 +1,5 @@
 using pupupu.Models.DAL;
+using pupupu.ViewModels.User;
 
 namespace pupupu.Services.Interfaces;
 
@@ -6,7 +7,9 @@ public interface IAdminPanelUserManagementService
 {
     List<User> GetUsers();
     
-    User EditUser(User user);
+    User GetUserById(string id);
     
-    void DeleteUser(User user);
+    void EditUser(UserViewModel query);
+    
+    void DeleteUser(string userId);
 }

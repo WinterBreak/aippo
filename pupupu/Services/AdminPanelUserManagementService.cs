@@ -2,6 +2,7 @@ using pupupu.Models.DAL; // здесь дал потому что для юзе�
 using pupupu.Repositories.Interfaces;
 using pupupu.Services.Interfaces;
 using System.Linq;
+using pupupu.ViewModels.User;
 
 namespace pupupu.Services;
 
@@ -20,19 +21,27 @@ public class AdminPanelUserManagementService: IAdminPanelUserManagementService
             .GetAllUsers().OrderBy(u => u.Name).ToList();
     }
 
-    public User EditUser(User user) // TODO возможно, нужно через дто + валидация??
+    public User GetUserById(string userId)
     {
+        return _userRepository.GetUserById(userId);
+    }
+
+    public void EditUser(UserViewModel query)
+    {
+        var user = _userRepository.GetUserById(query.Id);
         if (user == null)
         {
             throw new ArgumentNullException(nameof(user));
         }
         
+        user.Email = query.Email;
+        user.Name = query.UserName;
         _userRepository.SaveChanges();
-        return user;
     }
 
-    public void DeleteUser(User user)
+    public void DeleteUser(string userId)
     {
+        var user = _userRepository.GetUserById(userId);
         if (user == null)
         {
             throw new ArgumentNullException(nameof(user));

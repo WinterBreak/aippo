@@ -7,6 +7,7 @@ using pupupu.ViewModels.User;
 
 namespace pupupu.Controllers;
 
+[Route("AdminPanel")]
 public class AdminPanelController: Controller // отдельный контроллер, тк по идее админка должна стоять отдельно
     // отдельно собираться и запускаться. в будущем - отдельный сервис, вероятно
     // сразу отделим от основного хотя бы на таком уровне
@@ -24,7 +25,8 @@ public class AdminPanelController: Controller // отдельный контро
         _service = service;
     }
     
-    public async Task<IActionResult> Register(AdminRegisterViewModel model)
+    [HttpPost("RegisterSubmit")]
+    public async Task<IActionResult> RegisterSubmit(AdminRegisterViewModel model)
     {
         if (ModelState.IsValid)
         {
@@ -40,8 +42,9 @@ public class AdminPanelController: Controller // отдельный контро
 
             if (result.Succeeded)
             {
-                await _signInManager.SignInAsync(user, isPersistent: false);
-                return RedirectToAction("Index", "Home");
+                var users = _service.GetUsers();
+                var userList = new UserList(users);
+                return RedirectToAction("UserList", userList);
             }
 
             foreach (var error in result.Errors)
@@ -50,10 +53,16 @@ public class AdminPanelController: Controller // отдельный контро
             }
         }
         
-        return View(model);
+        return BadRequest(ModelState);
     }
     
-    [HttpPost]
+    [HttpGet("Register")]
+    public IActionResult Register()
+    {
+        return PartialView("CreateUser", new AdminRegisterViewModel());
+    }
+    
+    [HttpPost("Login")]
     [AllowAnonymous]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
@@ -80,7 +89,7 @@ public class AdminPanelController: Controller // отдельный контро
         return View(model);
     }
     
-    [HttpPost]
+    [HttpPost("Logout")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Logout()
     {
@@ -88,28 +97,46 @@ public class AdminPanelController: Controller // отдельный контро
         return RedirectToAction(nameof(HomeController.Index), "Home");
     }
 
-    [HttpGet]
+    [HttpGet("")]
     public IActionResult UserList() // TODO фильтры
     {
         var users = _service.GetUsers();
-        var userList = new UserList(users);
+        var userList = new UserList(users); // по приколу можно вынести в билдер
         return View(userList);
     }
-
-    [HttpPost]
-    public IActionResult EditUser(User user)
+    
+    [HttpGet("EditUser/{id}")]
+    public ActionResult EditUser(string id)
     {
+        var user = _service.GetUserById(id);
+        if (user is null)
+        {
+            return NotFound();
+        }
+        var userVm = new UserViewModel(id, user.Email, user.Name);
+        return PartialView(userVm);
+    }
+    
+    [HttpPost("EditUserSubmit")]
+    public IActionResult EditUserSubmit(UserViewModel user)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(); // TODO надо какое-то модальное окно для ошибок намутить
+        }
         _service.EditUser(user);
         var users = _service.GetUsers();
-        return View(users);
+        var userList = new UserList(users);
+        return RedirectToAction("UserList", userList); 
     }
-
-    [HttpDelete]
-    public IActionResult DeleteUser(User user)
+    
+    [HttpPost("DeleteUser/{id}")]
+    public IActionResult DeleteUser(string id)
     {
-        _service.DeleteUser(user);
+        _service.DeleteUser(id);
         var users = _service.GetUsers();
-        return View(users);
+        var userList = new UserList(users);
+        return View("UserList", userList);
     }
 
 }
