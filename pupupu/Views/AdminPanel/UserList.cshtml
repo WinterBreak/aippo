@@ -17,7 +17,7 @@ ViewData["Title"] = "Список пользователей";
 </div>
 
 <!-- Кнопка "Добавить пользователя" -->
-<a asp-action="Create" class="btn btn-primary">Добавить пользователя</a>
+<a data-url="@Url.Action("Register", "AdminPanel")" id="create-user-button" class="btn btn-primary">Добавить пользователя</a>
 
 <!-- Таблица со списком пользователей -->
 <table class="table">
@@ -32,20 +32,56 @@ ViewData["Title"] = "Список пользователей";
     <tbody>
     @foreach (var user in Model.Users)
     {
-    <tr>
-        <td>@user.Name</td>
-        <td>@user.Email</td>
-        <td>@(user.UserType == (int)UserType.Admin ? "Администратор" : "Пользователь")</td>
-        <td>
-            <!-- Кнопки для редактирования и удаления -->
-            <a asp-action="EditUser" asp-route-id="@user.Id" class="btn btn-sm btn-warning" title="Редактировать">
-                <i class="fas fa-edit"></i>
-            </a>
-            <a asp-action="DeleteUser" asp-route-id="@user.Id" class="btn btn-sm btn-danger" title="Удалить">
-                <i class="fas fa-trash-alt"></i>
-            </a>
-        </td>
-    </tr>
+        <tr>
+            <td>@user.Name</td>
+            <td>@user.Email</td>
+            <td>@(user.UserType == (int)UserType.Admin ? "Администратор" : "Пользователь")</td>
+            <td>
+                <!-- Кнопки для редактирования и удаления -->
+                <button type="button" class="btn btn-sm btn-warning edit-user-button"
+                        data-url="@Url.Action("EditUser", "AdminPanel", new { id = user.Id })" title="Редактировать">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <form asp-controller="AdminPanel" asp-action="DeleteUser" asp-route-id="@user.Id" method="post">
+                    <button type="submit" class="btn btn-sm btn-danger" title="Удалить">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
     }
+    <div id="modDialog" class="modal fade" >
+        <div id="dialogContent" class="modal-dialog"></div>
+    </div>
     </tbody>
 </table>
+
+@section Scripts {
+    <script>
+        $(function () {
+            $.ajaxSetup({ cache: false });
+            $(".edit-user-button").click(function (e) {
+                e.preventDefault();
+                const url = $(this).data('url');
+                $.get(url, function (data) {
+                    $('#dialogContent').html(data);
+                    $('#modDialog').modal('show');
+                });
+            });
+        });
+</script>
+
+    <script>
+    $(function () {
+        $.ajaxSetup({ cache: false });
+        $("#create-user-button").click(function (e) {
+            e.preventDefault();
+            const url = $(this).data('url');
+            $.get(url, function (data) {
+                $('#dialogContent').html(data);
+                $('#modDialog').modal('show');
+            });
+        });
+    });
+</script>
+}
