@@ -58,5 +58,3 @@
 /Users/elizavetalozkina/RiderProjects/pupupu/pupupu/obj/Debug/net8.0/pupupu.csproj.Up2Date
 /Users/elizavetalozkina/RiderProjects/pupupu/pupupu/bin/Debug/net8.0/runtimes/alpine-x64/native/libe_sqlite3.so
 /Users/elizavetalozkina/RiderProjects/pupupu/pupupu/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-/Users/elizavetalozkina/RiderProjects/pupupu/pupupu/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.UI.dll
-/Users/elizavetalozkina/RiderProjects/pupupu/pupupu/obj/Debug/net8.0/pupupu.MvcApplicationPartsAssemblyInfo.cs
