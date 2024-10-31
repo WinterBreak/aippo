@@ -29,7 +29,7 @@ public class AdminPanelUserManagementService: IAdminPanelUserManagementService
     public void EditUser(UserViewModel query)
     {
         var user = _userRepository.GetUserById(query.Id);
-        if (user == null)
+        if (user != null)
         {
             throw new ArgumentNullException(nameof(user));
         }
