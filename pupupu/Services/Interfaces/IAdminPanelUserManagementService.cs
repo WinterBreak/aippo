@@ -12,4 +12,6 @@ public interface IAdminPanelUserManagementService
     void EditUser(UserViewModel query);
     
     void DeleteUser(string userId);
+    
+    
 }
