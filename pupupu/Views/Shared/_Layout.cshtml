@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using pupupu.Models.DAL
+@using pupupu.Queries
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -30,7 +33,7 @@
                         <a class="nav-link" asp-controller="User" asp-action="Register">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="AdminPanel" asp-action="UserList">AdminPanel</a>
+                        <a href="@Url.Action("Index", "AdminPanel")" class="nav-link">AdminPanel</a>
                     </li>
                 }
             </ul>
