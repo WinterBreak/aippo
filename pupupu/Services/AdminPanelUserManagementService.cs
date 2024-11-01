@@ -20,7 +20,7 @@ public class AdminPanelUserManagementService: IAdminPanelUserManagementService
     {
         var users = _userRepository
             .GetAllUsers().OrderBy(u => u.Name).ToList();
-        GetFilteredUsersByUserType(users, query.UserType);
+        FilterUsersByUserType(users, query.UserType);
         return users;
     }
 
@@ -54,7 +54,7 @@ public class AdminPanelUserManagementService: IAdminPanelUserManagementService
         _userRepository.SaveChanges();
     }
     
-    private void GetFilteredUsersByUserType(List<User> users, UserType userType)
+    private void FilterUsersByUserType(List<User> users, UserType userType)
     {
         if (!Enum.IsDefined(typeof(UserType), userType))
         {
