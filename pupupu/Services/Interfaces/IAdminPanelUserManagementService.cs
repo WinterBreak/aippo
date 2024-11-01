@@ -1,11 +1,12 @@
 using pupupu.Models.DAL;
+using pupupu.Queries;
 using pupupu.ViewModels.User;
 
 namespace pupupu.Services.Interfaces;
 
 public interface IAdminPanelUserManagementService
 {
-    List<User> GetUsers();
+    List<User> GetUsers(UserListQuery query);
     
     User GetUserById(string id);
     

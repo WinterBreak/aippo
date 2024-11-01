@@ -1,24 +1,5 @@
 @model pupupu.ViewModels.User.UserList
 
-@{
-ViewData["Title"] = "Список пользователей";
-}
-
-<h2>Список пользователей</h2>
-
-<!-- Фильтр по типу пользователя -->
-<div class="form-group">
-    <label for="userTypeFilter">Тип пользователя:</label>
-    <select id="userTypeFilter" class="form-control">
-        <option value="Все">Все</option>
-        <option value="Администратор">Администратор</option>
-        <option value="Пользователь">Пользователь</option>
-    </select>
-</div>
-
-<!-- Кнопка "Добавить пользователя" -->
-<a data-url="@Url.Action("Register", "AdminPanel")" id="create-user-button" class="btn btn-primary">Добавить пользователя</a>
-
 <!-- Таблица со списком пользователей -->
 <table class="table">
     <thead>
@@ -63,25 +44,12 @@ ViewData["Title"] = "Список пользователей";
             $(".edit-user-button").click(function (e) {
                 e.preventDefault();
                 const url = $(this).data('url');
+                alert(url);
                 $.get(url, function (data) {
                     $('#dialogContent').html(data);
                     $('#modDialog').modal('show');
                 });
             });
         });
-</script>
-
-    <script>
-    $(function () {
-        $.ajaxSetup({ cache: false });
-        $("#create-user-button").click(function (e) {
-            e.preventDefault();
-            const url = $(this).data('url');
-            $.get(url, function (data) {
-                $('#dialogContent').html(data);
-                $('#modDialog').modal('show');
-            });
-        });
-    });
-</script>
+        </script>
 }

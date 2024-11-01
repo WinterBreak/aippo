@@ -23,9 +23,7 @@
 
     <ItemGroup>
       <Folder Include="Models\BLL\" />
-      <Folder Include="Queries\" />
       <Folder Include="ViewModels\" />
-      <Folder Include="VmBuilders\" />
     </ItemGroup>
 
     <ItemGroup>
