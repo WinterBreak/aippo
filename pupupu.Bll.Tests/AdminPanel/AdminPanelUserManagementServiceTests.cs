@@ -1,5 +1,6 @@
 using Moq;
 using pupupu.Models.DAL;
+using pupupu.Queries;
 using pupupu.Repositories.Interfaces;
 using pupupu.Services;
 using pupupu.Services.Interfaces;
@@ -27,8 +28,99 @@ public class AdminPanelUserManagementServiceTests
             .Setup(service => service.GetUserById(It.IsAny<string>()))
             .Returns((string userId) => _service.GetUserById(userId));
     }
-    
-    // TODO доп тесты для GetUserById, когда будет реализована сортировка по типу пользователя
+
+    [Test]
+    public void GetUsers_ShouldReturnAllUsers()
+    {
+        var query = new UserListQuery();
+        var userList = new List<User>
+        {
+            new User {UserName = "Admin", UserType = (int)UserType.Admin}, // TODO сделать тест кейс?
+            new User {UserName = "User", UserType = (int)UserType.User},
+        };
+        
+        _mockUserRepository
+            .Setup(repo => repo.GetAllUsers())
+            .Returns(userList.AsQueryable());
+        
+        var result = _service.GetUsers(query);
+        Assert.That(result, Is.EquivalentTo(userList));
+    }
+
+    [Test]
+    public void GetUsers_ShouldReturnAdminUsers()
+    {
+        var query = new UserListQuery { UserType = UserType.Admin };
+        var userList = new List<User>
+        {
+            new User {UserName = "Admin", UserType = (int)UserType.Admin},
+            new User {UserName = "User", UserType = (int)UserType.User},
+        };
+        var expectedUserList = userList
+            .Where(user => user.UserType == (int)UserType.Admin).ToList();
+        
+        _mockUserRepository
+            .Setup(repo => repo.GetAllUsers())
+            .Returns(userList.AsQueryable());
+        
+        var result = _service.GetUsers(query);
+        Assert.That(result, Is.EquivalentTo(expectedUserList));
+    }
+
+    [Test]
+    public void GetUsers_ShouldReturnUsers()
+    {
+        var query = new UserListQuery { UserType = UserType.User };
+        var userList = new List<User>
+        {
+            new User {UserName = "Admin", UserType = (int)UserType.Admin},
+            new User {UserName = "User", UserType = (int)UserType.User},
+        };
+        var expectedUserList = userList
+            .Where(user => user.UserType == (int)UserType.User).ToList();
+        
+        _mockUserRepository
+            .Setup(repo => repo.GetAllUsers())
+            .Returns(userList.AsQueryable());
+        
+        var result = _service.GetUsers(query);
+        Assert.That(result, Is.EquivalentTo(expectedUserList));
+    }
+
+    [Test]
+    public void GetUsers_ShouldReturnEmptyListIfNoUsers()
+    {
+        var query = new UserListQuery { UserType = UserType.User };
+        var userList = new List<User>
+        {
+            new User {UserName = "Admin", UserType = (int)UserType.Admin},
+            new User {UserName = "User", UserType = (int)UserType.Admin},
+        };
+        
+        _mockUserRepository
+            .Setup(repo => repo.GetAllUsers())
+            .Returns(userList.AsQueryable());
+        
+        var result = _service.GetUsers(query);
+        Assert.That(result, Is.Empty);
+    }
+
+    [Test]
+    public void GetUsers_ShouldThrowExceptionIfNonExistingUserType()
+    {
+        const int WRONG_USER_TYPE = -999;
+        var query = new UserListQuery { UserType =  (UserType)WRONG_USER_TYPE };
+        var userList = new List<User>
+        {
+            new User {UserName = "Admin", UserType = (int)UserType.Admin},
+            new User {UserName = "User", UserType = (int)UserType.Admin},
+        };
+        _mockUserRepository
+            .Setup(repo => repo.GetAllUsers())
+            .Returns(userList.AsQueryable());
+        
+        Assert.Throws<ArgumentException>(() => _service.GetUsers(query));
+    }
     
     [Test]
     public void GetUserById_CorrectId_ReturnsUser()
