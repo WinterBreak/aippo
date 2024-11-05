@@ -5,6 +5,8 @@ namespace pupupu.Repositories.Interfaces;
 public interface IBookRepository
 {
     IQueryable<Book> GetAllBooks();
+
+    IQueryable<Book> GetBooksByAuthorId(int authorId);
     
     Book GetBookById(int id);
 
