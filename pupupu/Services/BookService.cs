@@ -31,13 +31,8 @@ public class BookService: IBookServiceInterface
 
     public Book GetBookById(int bookId)
     {
-        var dalBook = _bookRepository.GetBoookById(bookId)
+        var dalBook = _bookRepository.GetBoookById(bookId);
         return new Book(dalBook);
     }
 
-    // здесь методы могут возвращать только bll (бизнес-логика) модели
-    // bll модель может повторять dal, но как правило, она потолще
-    // поскольку в неё можно напихать чуть ли не всё, что нужно функциональности (я про данные)
-    // например, OrderHistory на уровне бизнес логики не существует. bll модель будет называться просто Order
-    // и в ней будут лежать все данные, необходимые для заказа, а не так, как сейчас реализовано на уровне бд
 }
