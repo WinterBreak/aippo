@@ -20,7 +20,7 @@ public class BookRepository: IBookRepository
 
     public IQueryable<Book> GetBooksByAuthorId(int authorId)
     {
-        return _dbContext.Books(b => b.AuthorId == authorId);
+        return _dbContext.Books.Where(b => b.AuthorId == authorId);
     }
 
     public Book GetBookById(int id)

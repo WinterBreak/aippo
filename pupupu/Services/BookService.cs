@@ -1,18 +1,15 @@
 using pupupu.Repositories.Interfaces;
 using pupupu.Services.Interfaces;
 using System.Linq;
+using pupupu.Models.Bll;
+using DAL = pupupu.Models.DAL;
 
 namespace pupupu.Services;
 
 public class BookService: IBookServiceInterface
 {
-    // здесь определяются объекты, которые нужны для работы сервиса
-    // пока что это только репозиторий. но в будущем может понадобиться ещё какой-нибудь сервис, к примеру
     private readonly IBookRepository _bookRepository;
     
-    // объекты инициализируются через конструктор
-    // для того, чтобы это работало, нужно настроить зависимости через контейнеры 
-    // я это сделаю, просто объясняю, шо к чему  
     public BookService(IBookRepository bookRepository)
     {
         _bookRepository = bookRepository;
@@ -20,19 +17,22 @@ public class BookService: IBookServiceInterface
 
     public List<Book> GetBooks()
     {
-        return _bookRepository
-            .GetAllBooks().OrderBy(b => b.Name).ToList();
+        var dalBooks = _bookRepository
+            .GetAllBooks().OrderBy(b => b.Name);
+        return dalBooks.Select(b => new Book(b)).ToList();
     }
 
     public List<Book> GetBooksByAuthorId(int authorId)
     {
-        return _bookRepository
-            .GetBooksByAuthorId(authorId).OrderBy(b => b.Name).ToList();
+        var dalBooks = _bookRepository
+            .GetBooksByAuthorId(authorId).OrderBy(b => b.Name);
+        return dalBooks.Select(b => new Book(b)).ToList();
     }
 
     public Book GetBookById(int bookId)
     {
-        return _bookRepository.GetBoookById(bookId);
+        var dalBook = _bookRepository.GetBoookById(bookId)
+        return new Book(dalBook);
     }
 
     // здесь методы могут возвращать только bll (бизнес-логика) модели
