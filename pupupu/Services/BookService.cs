@@ -18,7 +18,7 @@ public class BookService: IBookServiceInterface
     public List<Book> GetBooks()
     {
         var dalBooks = _bookRepository
-            .GetAllBooks().OrderBy(b => b.Name);
+            .GetAllBooks().OrderBy(b => b.Title);
         return dalBooks.Select(b => new Book(b)).ToList();
     }
 
@@ -31,7 +31,7 @@ public class BookService: IBookServiceInterface
 
     public Book GetBookById(int bookId)
     {
-        var dalBook = _bookRepository.GetBoookById(bookId);
+        var dalBook = _bookRepository.GetBookById(bookId);
         return new Book(dalBook);
     }
 
