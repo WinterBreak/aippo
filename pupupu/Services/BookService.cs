@@ -25,7 +25,7 @@ public class BookService: IBookServiceInterface
     public List<Book> GetBooksByAuthorId(int authorId)
     {
         var dalBooks = _bookRepository
-            .GetBooksByAuthorId(authorId).OrderBy(b => b.Name);
+            .GetBooksByAuthorId(authorId).OrderBy(b => b.Title);
         return dalBooks.Select(b => new Book(b)).ToList();
     }
 
