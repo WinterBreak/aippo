@@ -18,6 +18,11 @@ public class BookRepository: IBookRepository
         return _dbContext.Books;
     }
 
+    public IQueryable<Book> GetBooksByAuthorId(int authorId)
+    {
+        return _dbContext.Books.Where(b => b.AuthorId == authorId);
+    }
+
     public Book GetBookById(int id)
     {
         return _dbContext.Books.SingleOrDefault(b => b.Id == id);
@@ -31,13 +36,11 @@ public class BookRepository: IBookRepository
     public void AddBook(Book book)
     {
         _dbContext.Books.Add(book);
-        _dbContext.SaveChanges(); // TODO убери потом. я протупила, так лучше не делать. будет много транзакций
     }
 
     public void RemoveBook(Book book)
     {
         _dbContext.Books.Remove(book);
-        _dbContext.SaveChanges();
     }
 
     public void SaveChanges()
