@@ -18,26 +18,43 @@ public class BookService: IBookServiceInterface
     public List<Book> GetBooks()
     {
         var dalBooks = _bookRepository
-            .GetAllBooks().OrderBy(b => b.Name);
+            .GetAllBooks().OrderBy(b => b.Title);
         return dalBooks.Select(b => new Book(b)).ToList();
     }
 
     public List<Book> GetBooksByAuthorId(int authorId)
     {
         var dalBooks = _bookRepository
-            .GetBooksByAuthorId(authorId).OrderBy(b => b.Name);
+            .GetBooksByAuthorId(authorId).OrderBy(b => b.Title);
         return dalBooks.Select(b => new Book(b)).ToList();
     }
 
     public Book GetBookById(int bookId)
     {
-        var dalBook = _bookRepository.GetBoookById(bookId)
+        var dalBook = _bookRepository.GetBookById(bookId);
         return new Book(dalBook);
     }
 
-    // здесь методы могут возвращать только bll (бизнес-логика) модели
-    // bll модель может повторять dal, но как правило, она потолще
-    // поскольку в неё можно напихать чуть ли не всё, что нужно функциональности (я про данные)
-    // например, OrderHistory на уровне бизнес логики не существует. bll модель будет называться просто Order
-    // и в ней будут лежать все данные, необходимые для заказа, а не так, как сейчас реализовано на уровне бд
+    public Book CreateBook()
+    {
+        var dalBook = _bookRepository.CreateBook();
+        return new Book(dalBook);
+    }
+
+    public void AddBook(Book book)
+    {
+        var bookId = book.Id;
+        var dalBook = _bookRepository.GetBookById(bookId);
+        _bookRepository.AddBook(dalBook);
+        _bookRepository.SaveChanges();
+    }
+
+    public void RemoveBook(Book book)
+    {
+        var bookId = book.Id;
+        var dalBook = _bookRepository.GetBookById(bookId);
+        _bookRepository.RemoveBook(dalBook);
+        _bookRepository.SaveChanges();
+    }
+
 }
