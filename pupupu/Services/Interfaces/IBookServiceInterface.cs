@@ -10,10 +10,8 @@ public interface IBookServiceInterface
 
     Book GetBookById(int bookId);
 
-    Book CreateBook();
+    Book CreateBook(Book newBook);
 
-    void AddBook(Book book);
-
-    void RemoveBook(Book book);
+    void RemoveBook(int bookId);
 
 }
