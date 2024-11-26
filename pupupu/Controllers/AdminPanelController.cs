@@ -2,27 +2,36 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using pupupu.Models.DAL;
+using pupupu.Queries;
 using pupupu.Services.Interfaces;
 using pupupu.ViewModels.User;
+using pupupu.VmBuilders;
 
 namespace pupupu.Controllers;
 
 [Route("AdminPanel")]
-public class AdminPanelController: Controller // отдельный контроллер, тк по идее админка должна стоять отдельно
-    // отдельно собираться и запускаться. в будущем - отдельный сервис, вероятно
-    // сразу отделим от основного хотя бы на таком уровне
+public class AdminPanelController: Controller
 {
     private readonly UserManager<User> _userManager;
     private readonly SignInManager<User> _signInManager;
     private readonly IAdminPanelUserManagementService _service;
+    private readonly IAdminPanelUserManagementVmBuilder _adminPanelUserManagementVmBuilder;
 
     public AdminPanelController(UserManager<User> userManager
         , SignInManager<User> signInManager
-        , IAdminPanelUserManagementService service)
+        , IAdminPanelUserManagementService service
+        , IAdminPanelUserManagementVmBuilder adminPanelUserManagementVmBuilder)
     {
         _userManager = userManager;
         _signInManager = signInManager;
         _service = service;
+        _adminPanelUserManagementVmBuilder = adminPanelUserManagementVmBuilder;
+    }
+
+    public IActionResult Index()
+    {
+        var userList = _adminPanelUserManagementVmBuilder.GetUserListVm(new UserListQuery());
+        return View(userList);
     }
     
     [HttpPost("RegisterSubmit")]
@@ -39,12 +48,10 @@ public class AdminPanelController: Controller // отдельный контро
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
-
             if (result.Succeeded)
             {
-                var users = _service.GetUsers();
-                var userList = new UserList(users);
-                return RedirectToAction("UserList", userList);
+                var userList = _adminPanelUserManagementVmBuilder.GetUserListVm(new UserListQuery());
+                return RedirectToAction("Index", userList);
             }
 
             foreach (var error in result.Errors)
@@ -97,12 +104,11 @@ public class AdminPanelController: Controller // отдельный контро
         return RedirectToAction(nameof(HomeController.Index), "Home");
     }
 
-    [HttpGet("")]
-    public IActionResult UserList() // TODO фильтры
+    [HttpGet("UserList")]
+    public IActionResult UserList(UserListQuery query)
     {
-        var users = _service.GetUsers();
-        var userList = new UserList(users); // по приколу можно вынести в билдер
-        return View(userList);
+        var userList = _adminPanelUserManagementVmBuilder.GetUserListVm(query);
+        return PartialView(userList);
     }
     
     [HttpGet("EditUser/{id}")]
@@ -125,8 +131,8 @@ public class AdminPanelController: Controller // отдельный контро
             return BadRequest(); // TODO надо какое-то модальное окно для ошибок намутить
         }
         _service.EditUser(user);
-        var users = _service.GetUsers();
-        var userList = new UserList(users);
+        
+        var userList = _adminPanelUserManagementVmBuilder.GetUserListVm(new UserListQuery());
         return RedirectToAction("UserList", userList); 
     }
     
@@ -134,8 +140,7 @@ public class AdminPanelController: Controller // отдельный контро
     public IActionResult DeleteUser(string id)
     {
         _service.DeleteUser(id);
-        var users = _service.GetUsers();
-        var userList = new UserList(users);
+        var userList =_adminPanelUserManagementVmBuilder.GetUserListVm(new UserListQuery());
         return View("UserList", userList);
     }
 

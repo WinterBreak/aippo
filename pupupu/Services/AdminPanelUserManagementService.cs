@@ -2,6 +2,7 @@ using pupupu.Models.DAL; // здесь дал потому что для юзе�
 using pupupu.Repositories.Interfaces;
 using pupupu.Services.Interfaces;
 using System.Linq;
+using pupupu.Queries;
 using pupupu.ViewModels.User;
 
 namespace pupupu.Services;
@@ -15,10 +16,12 @@ public class AdminPanelUserManagementService: IAdminPanelUserManagementService
         _userRepository = userRepository;
     }
 
-    public List<User> GetUsers() // TODO сюда пробросить фильтры
+    public List<User> GetUsers(UserListQuery query) // TODO сюда пробросить фильтры
     {
-        return _userRepository
+        var users = _userRepository
             .GetAllUsers().OrderBy(u => u.Name).ToList();
+        FilterUsersByUserType(users, query.UserType);
+        return users;
     }
 
     public User GetUserById(string userId)
@@ -51,14 +54,16 @@ public class AdminPanelUserManagementService: IAdminPanelUserManagementService
         _userRepository.SaveChanges();
     }
     
-    private List<User> GetUsersByUserType(UserType userType)
+    private void FilterUsersByUserType(List<User> users, UserType userType)
     {
         if (!Enum.IsDefined(typeof(UserType), userType))
         {
             throw new ArgumentException("Неверный тип пользователя!");
         }
-        
-        return _userRepository.GetAllUsers()
-            .Where(u => u.UserType == (int)userType).ToList();
+
+        if (userType != UserType.None)
+        {
+            users.RemoveAll(u => u.UserType != (int)userType);
+        }
     }
 }

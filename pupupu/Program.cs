@@ -7,6 +7,7 @@ using pupupu.Repositories;
 using pupupu.Repositories.Interfaces;
 using pupupu.Services;
 using pupupu.Services.Interfaces;
+using pupupu.VmBuilders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,6 +49,7 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 // регистрация сервисов
 builder.Services.AddScoped<IBookServiceInterface, BookService>();
 builder.Services.AddScoped<IAdminPanelUserManagementService, AdminPanelUserManagementService>();
+builder.Services.AddScoped<IAdminPanelUserManagementVmBuilder, AdminPanelUserManagementVmBuilder>();
 
 var app = builder.Build();
 
