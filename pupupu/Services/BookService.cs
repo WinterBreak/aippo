@@ -35,4 +35,24 @@ public class BookService: IBookServiceInterface
         return new Book(dalBook);
     }
 
+    public Book CreateBook(Book newBook)
+    {
+        var dalBook = _bookRepository.CreateBook();
+        
+        dalBook.Title = newBook.Title;
+        dalBook.Description = newBook.Description;
+        dalBook.AuthorId = newBook.AuthorId;
+
+        _bookRepository.AddBook(dalBook);
+        _bookRepository.SaveChanges();
+        return new Book(dalBook);
+    }
+
+    public void RemoveBook(int bookId)
+    {
+        var dalBook = _bookRepository.GetBookById(bookId);
+        _bookRepository.RemoveBook(dalBook);
+        _bookRepository.SaveChanges();
+    }
+
 }

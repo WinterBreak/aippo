@@ -1,7 +1,17 @@
+using pupupu.Models.Bll;
+
 namespace pupupu.Services.Interfaces;
 
-// определяем интерфейс сервиса (когда здесь появится код, этот комм можно будет удалить)
 public interface IBookServiceInterface
 {
-    
+    List<Book> GetBooks();
+
+    List<Book> GetBooksByAuthorId(int authorId);
+
+    Book GetBookById(int bookId);
+
+    Book CreateBook(Book newBook);
+
+    void RemoveBook(int bookId);
+
 }
