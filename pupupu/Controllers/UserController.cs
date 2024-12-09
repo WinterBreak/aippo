@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using pupupu.Models.DAL;
+using pupupu.Services;
+using pupupu.Services.Common;
 using pupupu.ViewModels.User;
 
 namespace pupupu.Controllers;
@@ -63,19 +66,14 @@ public class UserController: Controller
     {
         if (ModelState.IsValid)
         {
-            var user = new User
-            {
-                Name = model.Name,
-                UserName = model.Email,
-                Email = model.Email,
-                UserType = (int)UserType.User
-            };
-
-            var result = await _userManager.CreateAsync(user, model.Password);
-
+            var userFactory = new UserAccountFactory(_userManager);
+            var accountManager = new AccountManager(userFactory);
+            var result = await accountManager.CreateAccountAsync(model.Name, model.Email, model.Password);
+            
             if (result.Succeeded)
             {
-                await _signInManager.SignInAsync(user, isPersistent: false);
+                await _signInManager.PasswordSignInAsync(model.Email
+                    , model.Password, true, false);
                 return RedirectToAction("Index", "Home");
             }
 
