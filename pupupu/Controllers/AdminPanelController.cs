@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using pupupu.Models.DAL;
 using pupupu.Queries;
+using pupupu.Services;
+using pupupu.Services.Common;
 using pupupu.Services.Interfaces;
 using pupupu.ViewModels.User;
 using pupupu.VmBuilders;
@@ -39,15 +41,10 @@ public class AdminPanelController: Controller
     {
         if (ModelState.IsValid)
         {
-            var user = new User
-            {
-                Name = model.Name,
-                UserName = model.Email,
-                Email = model.Email,
-                UserType = (int)UserType.Admin
-            };
-
-            var result = await _userManager.CreateAsync(user, model.Password);
+            var userFactory = new AdminAccountFactory(_userManager);
+            var manager = new AccountManager(userFactory);
+            var result = await manager.CreateAccountAsync(model.Name, model.Email, model.Password);
+            
             if (result.Succeeded)
             {
                 var userList = _adminPanelUserManagementVmBuilder.GetUserListVm(new UserListQuery());
