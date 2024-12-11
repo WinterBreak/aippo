@@ -1,6 +1,7 @@
-enum OrderStatus
+public enum OrderStatus
 {
-    Active = 0,
-    Closed = 1,
-    Canceled = 2
+    Waiting = 0,
+    Active = 1,
+    Closed = 2,
+    Canceled = 3
 }
