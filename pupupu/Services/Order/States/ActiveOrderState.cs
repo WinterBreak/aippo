@@ -1,3 +1,4 @@
+using pupupu.Common;
 using pupupu.Services.Common;
 
 namespace pupupu.Services.Order;
@@ -8,21 +9,25 @@ using pupupu.Models.BLL;
 // Поэтому логика, связанная с изменениями статусов, будет лежать в сервисе заказов
 public class ActiveOrderState: IOrderState
 {
-    public void Process(Order order)
+    public Errors Process(Order order)
     {
+        var errors = new Errors();
         if (order.OrderStatus != OrderStatus.Active)
         {
-            throw new InvalidOperationException("Invalid order status");
+            errors.AddMainError("Invalid order status");
         }
         order.OrderStatus = OrderStatus.Closed;
+        return errors;
     }
 
-    public void Cancel(Order order)
+    public Errors Cancel(Order order)
     {
+        var errors = new Errors();
         if (order.OrderStatus != OrderStatus.Active)
         {
-            throw new InvalidOperationException("Invalid order status");
+            errors.AddMainError("Invalid order status");
         }
         order.OrderStatus = OrderStatus.Canceled;
+        return errors;
     }
 }

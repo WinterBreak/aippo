@@ -1,6 +1,4 @@
-using pupupu.Models.DAL;
-
-namespace pupupu.Models.Bll;
+namespace pupupu.Models.BLL;
 
 public class Book
 {

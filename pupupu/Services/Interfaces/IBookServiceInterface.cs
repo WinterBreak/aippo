@@ -1,4 +1,4 @@
-using pupupu.Models.Bll;
+using pupupu.Models.BLL;
 
 namespace pupupu.Services.Interfaces;
 

@@ -1,23 +1,31 @@
+using pupupu.Common;
+
 namespace pupupu.Services.Order.Decorators;
 using pupupu.Models.BLL;
 
 public class SmsNotificationOrderDecoration: OrderDecorator
 {
-    public override void Process(Order order)
+    public SmsNotificationOrderDecoration(Order order) : base(order)
     {
-        base.Process(order);
-        SendSmsNotification();
-    }
-
-    public override void Cancel(Order order)
-    {
-        base.Cancel(order);
-        SendSmsNotification();
+        
     }
     
-    private void SendSmsNotification()
+    public override Errors Process()
+    {
+        base.Process();
+        return SendSmsNotification();
+    }
+
+    public override Errors Cancel()
+    {
+        base.Cancel();
+        return SendSmsNotification();
+    }
+    
+    private Errors SendSmsNotification()
     {
         // TODO попробовать Twilio. С Identity должно работать
         Console.WriteLine("Sending sms notification");
+        return new Errors();
     }
 }

@@ -1,3 +1,4 @@
+using pupupu.Common;
 using pupupu.Services.Common;
 
 namespace pupupu.Services.Order;
@@ -5,13 +6,17 @@ using pupupu.Models.BLL;
 
 public class CancelOrderState: IOrderState
 {
-    public void Process(Order order)
+    public Errors Process(Order order)
     {
-        throw new InvalidOperationException("Order is already cancelled");
+        var errors = new Errors();
+        errors.AddMainError("Order is already cancelled");
+        return errors;
     }
 
-    public void Cancel(Order order)
+    public Errors Cancel(Order order)
     {
-        throw new InvalidOperationException("Order is already cancelled");
+        var errors = new Errors();
+        errors.AddMainError("Order is already cancelled");
+        return errors;
     }
 }

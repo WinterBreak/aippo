@@ -1,3 +1,4 @@
+using pupupu.Common;
 using pupupu.Services.Common;
 
 namespace pupupu.Services.Order;
@@ -5,17 +6,21 @@ using pupupu.Models.BLL;
 
 public class ClosedOrderState: IOrderState
 {
-    public void Process(Order order)
+    public Errors Process(Order order)
     {
-        throw new InvalidOperationException("Order is already closed"); // тут, возможно, лучше ошибки возвращать. но лень
+        var errors = new Errors();
+        errors.AddMainError("Order is already closed");
+        return errors;
     }
 
-    public void Cancel(Order order)
+    public Errors Cancel(Order order)
     {
+        var errors = new Errors();
         if (order.OrderStatus != OrderStatus.Closed)
         {
-            throw new InvalidOperationException("Invalid order status");
+            errors.AddMainError("Invalid order status");
         }
         order.OrderStatus = OrderStatus.Canceled;
+        return errors;
     }
 }

@@ -1,6 +1,5 @@
-using pupupu.Models.DAL;
-
-namespace pupupu.Models.Bll;
+namespace pupupu.Models.BLL;
+using DAL = pupupu.Models.DAL;
 
 public class Author
 {
