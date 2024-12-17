@@ -1,8 +1,22 @@
+using pupupu.Common;
+using pupupu.Queries;
+
 namespace pupupu.Services.Interfaces;
+using Models.BLL;
 
 public interface IOrderService
 {
-    void ProcessOrder(int orderId);
+    Errors ProcessOrder(int orderId);
     
-    void CancelOrder(int orderId);
+    Errors CancelOrder(int orderId);
+    
+    List<Order> GetOrders(OrderQuery query);
+    
+    Order GetOrderById(int orderId);
+    
+    Errors AddOrder(Order order);
+    
+    Errors EditOrder(Order order);
+    
+    Errors DeleteOrder(int orderId);
 }

@@ -1,7 +1,7 @@
 using pupupu.Repositories.Interfaces;
 using pupupu.Services.Interfaces;
 using System.Linq;
-using pupupu.Models.Bll;
+using pupupu.Models.BLL;
 using DAL = pupupu.Models.DAL;
 
 namespace pupupu.Services;

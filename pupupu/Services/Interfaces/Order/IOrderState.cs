@@ -1,9 +1,11 @@
+using pupupu.Common;
+
 namespace pupupu.Services.Common;
 using pupupu.Models.BLL;
 
 public interface IOrderState
 {
-    void Process(Order order);
+    Errors Process(Order order);
     
-    void Cancel(Order order);
+    Errors Cancel(Order order);
 }

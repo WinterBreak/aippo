@@ -1,20 +1,25 @@
+using pupupu.Common;
 using pupupu.Services.Common;
 
 namespace pupupu.Services.Order.Decorators;
 using pupupu.Models.BLL;
 
-public abstract class OrderDecorator : IOrderState
+public abstract class OrderDecorator: Order //TODO щас лень, но лучше тогда какой-то абстрактный класс замутить
 {
     protected Order _order;
-    public virtual void Process(Order order)
+
+    public OrderDecorator(Order order)
     {
-        this._order = order;
-        order.ProcessOrderState();
+        _order = order;
+    }
+    
+    public virtual Errors Process()
+    {
+        return _order.ProcessOrderState();
     }
 
-    public virtual void Cancel(Order order)
+    public virtual Errors Cancel()
     {
-        this._order = order;
-        order.CancelOrder();
+       return _order.CancelOrder();
     }
 }

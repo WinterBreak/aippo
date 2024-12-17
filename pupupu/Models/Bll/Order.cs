@@ -1,7 +1,6 @@
-using pupupu.Models.Bll;
+using pupupu.Common;
 using pupupu.Services.Common;
 using pupupu.Services.Order;
-using DAL = pupupu.Models.DAL;
 
 namespace pupupu.Models.BLL;
 
@@ -30,7 +29,7 @@ public class Order
         this.OrderDate = fromValue.OrderDate;
         this.OrderEndDate = fromValue.OrderEndDate;
         this.OrderStatus = (OrderStatus)fromValue.Status;
-        this.OrderedBooks = fromValue.BooktToOrderHistoryLinks
+        this.OrderedBooks = fromValue.BooksToOrderHistoryLinks
             .Select(b => new Book(b.Book)).ToList();
     }
 
@@ -40,13 +39,13 @@ public class Order
         this.OrderStatus = OrderStatus.Waiting;
     }
 
-    public void ProcessOrderState()
+    public Errors ProcessOrderState()
     {
-        this._state.Process(this);
+        return this._state.Process(this);
     }
 
-    public void CancelOrder()
+    public Errors CancelOrder()
     {
-        this._state.Process(this);
+        return this._state.Process(this);
     }
 }

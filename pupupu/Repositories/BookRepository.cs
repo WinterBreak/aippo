@@ -23,6 +23,11 @@ public class BookRepository: IBookRepository
         return _dbContext.Books.Where(b => b.AuthorId == authorId);
     }
 
+    public IQueryable<Book> GetBooksByIds(IEnumerable<int> ids)
+    {
+        return _dbContext.Books.Where(b => ids.Contains(b.Id));
+    }
+
     public Book GetBookById(int id)
     {
         return _dbContext.Books.SingleOrDefault(b => b.Id == id);
@@ -40,6 +45,7 @@ public class BookRepository: IBookRepository
 
     public void RemoveBook(Book book)
     {
+        _dbContext.BooksToOrderHistoryLinks.RemoveRange(book.BooksToOrderHistoryLinks);
         _dbContext.Books.Remove(book);
     }
 

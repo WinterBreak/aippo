@@ -1,23 +1,29 @@
+using pupupu.Common;
+
 namespace pupupu.Services.Order.Decorators;
 using pupupu.Models.BLL;
 
 public class EmailNotificationOrderDecorator: OrderDecorator
 {
-    public override void Process(Order order)
+    public EmailNotificationOrderDecorator(Order order): base(order)
+    { }
+    
+    public override Errors Process()
     {
-        base.Process(order);
-        SendEmailNotification();
+        base.Process();
+        return SendEmailNotification();
     }
 
-    public override void Cancel(Order order)
+    public override Errors Cancel()
     {
-        base.Cancel(order);
-        SendEmailNotification();
+        base.Cancel();
+        return SendEmailNotification();
     }
 
-    private void SendEmailNotification()
+    private Errors SendEmailNotification()
     {
         // TODO попробовать MailKit
         Console.WriteLine("Sending email notification");
+        return new Errors();
     }
 }
