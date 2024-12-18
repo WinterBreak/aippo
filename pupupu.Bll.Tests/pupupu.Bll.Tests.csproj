@@ -25,7 +25,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\pupupu\pupupu.csproj" />
+      <ProjectReference Include="..\pupupu.Web\pupupu.Web.csproj" />
     </ItemGroup>
 
     <ItemGroup>

@@ -1,10 +1,8 @@
 using Moq;
-using pupupu.Models.DAL;
-using pupupu.Queries;
-using pupupu.Repositories.Interfaces;
-using pupupu.Services;
-using pupupu.Services.Interfaces;
-using pupupu.ViewModels.User;
+using pupupu.Dal.Models;
+using pupupu.Bll.Dto;
+using pupupu.Dal.Repositories;
+using pupupu.Bll.Services;
 
 namespace pupupu.Bll.Tests;
 
@@ -156,7 +154,7 @@ public class AdminPanelUserManagementServiceTests
     [Test]
     public void EditUser_NonExistingUser_ThrowsException()
     {
-        var userVm = new UserViewModel(NON_EXISTING_USER_ID, "email", "password");
+        var userVm = new UserDto(NON_EXISTING_USER_ID, "email", "password");
         
         _mockUserRepository
             .Setup(repo => repo.GetUserById(userVm.Id))
@@ -168,7 +166,7 @@ public class AdminPanelUserManagementServiceTests
     [Test]
     public void EditUser_ExistingUser_NoException()
     {
-        var userVm = new UserViewModel(CORRECT_USER_ID, "email", "password");
+        var userVm = new UserDto(CORRECT_USER_ID, "email", "password");
         var expectedUserFromRepo = new User
         {
             Id = CORRECT_USER_ID,
@@ -185,7 +183,7 @@ public class AdminPanelUserManagementServiceTests
     [Test]
     public void DeleteUser_NonExistingUser_ThrowsException()
     {
-        var userVm = new UserViewModel(NON_EXISTING_USER_ID, "email", "password");
+        var userVm = new UserDto(NON_EXISTING_USER_ID, "email", "password");
         
         _mockUserRepository
             .Setup(repo => repo.GetUserById(userVm.Id))
@@ -197,7 +195,7 @@ public class AdminPanelUserManagementServiceTests
     [Test]
     public void DeleteUser_ExistingUser_NoException()
     {
-        var userVm = new UserViewModel(CORRECT_USER_ID, "email", "password");
+        var userVm = new UserDto(CORRECT_USER_ID, "email", "password");
         var expectedUser = new User
         {
             Id = CORRECT_USER_ID,
