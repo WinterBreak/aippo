@@ -1,33 +1,35 @@
 {
   "format": 1,
   "restore": {
-    "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Bll.Tests/pupupu.Bll.Tests.csproj": {}
+    "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Bll.Tests\\pupupu.Bll.Tests.csproj": {}
   },
   "projects": {
-    "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Bll.Tests/pupupu.Bll.Tests.csproj": {
+    "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Bll.Tests\\pupupu.Bll.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Bll.Tests/pupupu.Bll.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Bll.Tests\\pupupu.Bll.Tests.csproj",
         "projectName": "pupupu.Bll.Tests",
-        "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Bll.Tests/pupupu.Bll.Tests.csproj",
-        "packagesPath": "/Users/elizavetalozkina/.nuget/packages/",
-        "outputPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Bll.Tests/obj/",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Bll.Tests\\pupupu.Bll.Tests.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Bll.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/elizavetalozkina/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Web/pupupu.Web.csproj": {
-                "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Web/pupupu.Web.csproj"
+              "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Web\\pupupu.Web.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Web\\pupupu.Web.csproj"
               }
             }
           }
@@ -96,37 +98,39 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Bll/pupupu.Bll.csproj": {
+    "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Bll\\pupupu.Bll.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Bll/pupupu.Bll.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Bll\\pupupu.Bll.csproj",
         "projectName": "pupupu.Bll",
-        "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Bll/pupupu.Bll.csproj",
-        "packagesPath": "/Users/elizavetalozkina/.nuget/packages/",
-        "outputPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Bll/obj/",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Bll\\pupupu.Bll.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Bll\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/elizavetalozkina/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/pupupu.Core.csproj": {
-                "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/pupupu.Core.csproj"
+              "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Core\\pupupu.Core.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Core\\pupupu.Core.csproj"
               },
-              "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Dal/pupupu.Dal.csproj": {
-                "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Dal/pupupu.Dal.csproj"
+              "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Dal\\pupupu.Dal.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Dal\\pupupu.Dal.csproj"
               }
             }
           }
@@ -161,26 +165,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/pupupu.Core.csproj": {
+    "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Core\\pupupu.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/pupupu.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Core\\pupupu.Core.csproj",
         "projectName": "pupupu.Core",
-        "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/pupupu.Core.csproj",
-        "packagesPath": "/Users/elizavetalozkina/.nuget/packages/",
-        "outputPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/obj/",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Core\\pupupu.Core.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/elizavetalozkina/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -219,26 +225,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Dal/pupupu.Dal.csproj": {
+    "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Dal\\pupupu.Dal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Dal/pupupu.Dal.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Dal\\pupupu.Dal.csproj",
         "projectName": "pupupu.Dal",
-        "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Dal/pupupu.Dal.csproj",
-        "packagesPath": "/Users/elizavetalozkina/.nuget/packages/",
-        "outputPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Dal/obj/",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Dal\\pupupu.Dal.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Dal\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/elizavetalozkina/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -293,34 +301,36 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Web/pupupu.Web.csproj": {
+    "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Web\\pupupu.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Web/pupupu.Web.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Web\\pupupu.Web.csproj",
         "projectName": "pupupu.Web",
-        "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Web/pupupu.Web.csproj",
-        "packagesPath": "/Users/elizavetalozkina/.nuget/packages/",
-        "outputPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Web/obj/",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Web\\pupupu.Web.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/elizavetalozkina/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Bll/pupupu.Bll.csproj": {
-                "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Bll/pupupu.Bll.csproj"
+              "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Bll\\pupupu.Bll.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\WinterBreak\\aippo\\pupupu.Bll\\pupupu.Bll.csproj"
               }
             }
           }
@@ -388,7 +398,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
