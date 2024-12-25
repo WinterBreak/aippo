@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\pupupu.AdminPanel.Bll\pupupu.AdminPanel.Bll.csproj" />
+      <ProjectReference Include="..\pupupu.AdminPanel.Dal\pupupu.AdminPanel.Dal.csproj" />
+      <ProjectReference Include="..\pupupu.Bll\pupupu.Bll.csproj" />
+      <ProjectReference Include="..\pupupu.Core\pupupu.Core.csproj" />
+      <ProjectReference Include="..\pupupu.Web\pupupu.Web.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Views\AdminPanel\CreateUser.cshtml" />
+      <AdditionalFiles Include="Views\AdminPanel\EditUser.cshtml" />
+      <AdditionalFiles Include="Views\AdminPanel\Index.cshtml" />
+      <AdditionalFiles Include="Views\AdminPanel\Login.cshtml" />
+      <AdditionalFiles Include="Views\AdminPanel\UserList.cshtml" />
+    </ItemGroup>
+
+</Project>

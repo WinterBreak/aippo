@@ -32,7 +32,16 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\pupupu.AdminPanel.Dal\pupupu.AdminPanel.Dal.csproj" />
       <ProjectReference Include="..\pupupu.Bll\pupupu.Bll.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\AdminPanel\CreateUser.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\AdminPanel\EditUser.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\AdminPanel\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\AdminPanel\Login.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\AdminPanel\UserList.cshtml" />
     </ItemGroup>
 
 </Project>

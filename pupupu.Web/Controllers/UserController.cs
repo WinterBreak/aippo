@@ -1,9 +1,10 @@
+using AdminPanel.Bll;
+using AdminPanel.Dal;
+using AdminPanel.Web;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using pupupu.Dal.Models;
 using pupupu.Bll.Services;
-using pupupu.Web.ViewModels.User;
 
 namespace pupupu.Web.Controllers;
 

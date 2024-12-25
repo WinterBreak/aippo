@@ -1,0 +1,64 @@
+@model AdminPanel.Web.UserList
+
+@{
+ViewData["Title"] = "Список пользователей";
+}
+
+<h2>Список пользователей</h2>
+
+<!-- Фильтр по типу пользователя -->
+<div class="form-group">
+    <label for="userTypeFilter">Тип пользователя:</label>
+    <select id="userTypeFilter" class="form-control">
+        <option value="@UserType.None">Все</option>
+        <option value="@UserType.Admin">Администратор</option>
+        <option value="@UserType.User">Пользователь</option>
+    </select>
+</div>
+
+<!-- Кнопка "Добавить пользователя" -->
+<a data-url="@Url.Action("Register", "AdminPanel")" id="create-user-button" class="btn btn-primary">Добавить пользователя</a>
+
+
+<div id="userListContainer">
+    @Html.Partial("UserList", Model)
+</div>
+
+<div id="modDialog" class="modal fade" >
+    <div id="dialogContent" class="modal-dialog"></div>
+</div>
+
+@section Scripts {
+    <script>
+    $(document).ready(function () {
+        $('#userTypeFilter').on('change', function () {
+            var userType = $(this).val();
+            var url = '@Url.Action("UserList", "AdminPanel")';
+            $.ajax({
+                url: url,
+                method: 'GET',
+                data: { UserType: userType },
+                success: function (result) {
+                    $('#userListContainer').html(result);
+                },
+                error: function (error) {
+                    console.error('Ошибка:', error);
+                }
+            });
+        });
+    });
+</script>
+<script>
+    $(function () {
+        $.ajaxSetup({ cache: false });
+        $("#create-user-button").click(function (e) {
+            e.preventDefault();
+            const url = $(this).data('url');
+            $.get(url, function (data) {
+                $('#dialogContent').html(data);
+                $('#modDialog').modal('show');
+            });
+        });
+    });
+</script>
+}

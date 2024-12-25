@@ -1,10 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using pupupu.Web.Common;
-using pupupu.Dal.Models;
 using pupupu.Dal.Repositories;
 using pupupu.Bll.Services;
-using pupupu.Web.VmBuilders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,10 +11,6 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<BookOrderSystemContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty
     , b => b.MigrationsAssembly("pupupu.Web")));
-
-builder.Services.AddIdentity<User, IdentityRole>()
-    .AddEntityFrameworkStores<BookOrderSystemContext>()
-    .AddDefaultTokenProviders();
 
 builder.Services.Configure<IdentityOptions>(options =>
 {
@@ -43,11 +37,8 @@ builder.Services.AddControllersWithViews();
 
 // регистрация репозиториев 
 builder.Services.AddScoped<IBookRepository, BookRepository>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
 // регистрация сервисов
 builder.Services.AddScoped<IBookServiceInterface, BookService>();
-builder.Services.AddScoped<IAdminPanelUserManagementService, AdminPanelUserManagementService>();
-builder.Services.AddScoped<IAdminPanelUserManagementVmBuilder, AdminPanelUserManagementVmBuilder>();
 
 var app = builder.Build();
 

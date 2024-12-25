@@ -1,9 +1,7 @@
+using AdminPanel.Bll;
+using AdminPanel.Dal;
 using Moq;
-using pupupu.Dal.Models;
 using pupupu.Bll.Dto;
-using pupupu.Dal.Repositories;
-using pupupu.Bll.Services;
-
 namespace pupupu.Bll.Tests;
 
 [TestFixture]

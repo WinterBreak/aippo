@@ -1,0 +1,15 @@
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Dal/bin/Debug/net8.0/pupupu.Dal.deps.json
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Dal/bin/Debug/net8.0/pupupu.Dal.dll
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Dal/bin/Debug/net8.0/pupupu.Dal.pdb
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Dal/obj/Debug/net8.0/pupupu.Dal.csproj.AssemblyReference.cache
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Dal/obj/Debug/net8.0/pupupu.Dal.GeneratedMSBuildEditorConfig.editorconfig
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Dal/obj/Debug/net8.0/pupupu.Dal.AssemblyInfoInputs.cache
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Dal/obj/Debug/net8.0/pupupu.Dal.AssemblyInfo.cs
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Dal/obj/Debug/net8.0/pupupu.Dal.csproj.CoreCompileInputs.cache
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Dal/obj/Debug/net8.0/pupupu.Dal.sourcelink.json
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Dal/obj/Debug/net8.0/pupupu.Dal.dll
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Dal/obj/Debug/net8.0/refint/pupupu.Dal.dll
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Dal/obj/Debug/net8.0/pupupu.Dal.pdb
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Dal/obj/Debug/net8.0/ref/pupupu.Dal.dll
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Dal/bin/Debug/net8.0/pupupu.Dal.runtimeconfig.json
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Dal/obj/Debug/net8.0/pupupu.Dal.genruntimeconfig.cache
