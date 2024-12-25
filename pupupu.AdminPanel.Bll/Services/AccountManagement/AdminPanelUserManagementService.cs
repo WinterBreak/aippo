@@ -14,7 +14,7 @@ public class AdminPanelUserManagementService: IAdminPanelUserManagementService
         _userRepository = userRepository;
     }
 
-    public List<User> GetUsers(UserListQuery query) // TODO сюда пробросить фильтры
+    public List<User> GetUsers(UserListQuery query)
     {
         var users = _userRepository
             .GetAllUsers().OrderBy(u => u.Name).ToList();
