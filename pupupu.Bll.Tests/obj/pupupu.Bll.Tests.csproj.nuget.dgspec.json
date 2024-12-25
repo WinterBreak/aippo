@@ -4,6 +4,155 @@
     "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Bll.Tests/pupupu.Bll.Tests.csproj": {}
   },
   "projects": {
+    "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/pupupu.AdminPanel.Bll.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/pupupu.AdminPanel.Bll.csproj",
+        "projectName": "pupupu.AdminPanel.Bll",
+        "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/pupupu.AdminPanel.Bll.csproj",
+        "packagesPath": "/Users/elizavetalozkina/.nuget/packages/",
+        "outputPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/elizavetalozkina/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Dal/pupupu.AdminPanel.Dal.csproj": {
+                "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Dal/pupupu.AdminPanel.Dal.csproj"
+              },
+              "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/pupupu.Core.csproj": {
+                "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/pupupu.Core.csproj"
+              },
+              "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Dal/pupupu.Dal.csproj": {
+                "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Dal/pupupu.Dal.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.203/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Dal/pupupu.AdminPanel.Dal.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Dal/pupupu.AdminPanel.Dal.csproj",
+        "projectName": "pupupu.AdminPanel.Dal",
+        "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Dal/pupupu.AdminPanel.Dal.csproj",
+        "packagesPath": "/Users/elizavetalozkina/.nuget/packages/",
+        "outputPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Dal/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/elizavetalozkina/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/pupupu.Core.csproj": {
+                "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/pupupu.Core.csproj"
+              },
+              "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Dal/pupupu.Dal.csproj": {
+                "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Dal/pupupu.Dal.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.203/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Bll.Tests/pupupu.Bll.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -122,6 +271,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/pupupu.AdminPanel.Bll.csproj": {
+                "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/pupupu.AdminPanel.Bll.csproj"
+              },
               "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/pupupu.Core.csproj": {
                 "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/pupupu.Core.csproj"
               },
@@ -319,6 +471,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Dal/pupupu.AdminPanel.Dal.csproj": {
+                "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Dal/pupupu.AdminPanel.Dal.csproj"
+              },
               "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Bll/pupupu.Bll.csproj": {
                 "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Bll/pupupu.Bll.csproj"
               }

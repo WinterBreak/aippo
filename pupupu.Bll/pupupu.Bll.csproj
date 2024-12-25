@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\pupupu.AdminPanel.Bll\pupupu.AdminPanel.Bll.csproj" />
       <ProjectReference Include="..\pupupu.Core\pupupu.Core.csproj" />
       <ProjectReference Include="..\pupupu.Dal\pupupu.Dal.csproj" />
     </ItemGroup>

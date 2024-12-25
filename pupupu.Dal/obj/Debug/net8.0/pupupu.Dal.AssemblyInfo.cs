@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("pupupu.Dal")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e2881ffbc1a495b242fcd8e4a996359e1e257a6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6f3915f1fbb425ca1322e2cb1eecf02a79460c4d")]
 [assembly: System.Reflection.AssemblyProductAttribute("pupupu.Dal")]
 [assembly: System.Reflection.AssemblyTitleAttribute("pupupu.Dal")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

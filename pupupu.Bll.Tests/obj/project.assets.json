@@ -2281,10 +2281,43 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "pupupu.AdminPanel.Bll/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.0",
+          "pupupu.AdminPanel.Dal": "1.0.0",
+          "pupupu.Core": "1.0.0",
+          "pupupu.Dal": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/pupupu.AdminPanel.Bll.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/pupupu.AdminPanel.Bll.dll": {}
+        }
+      },
+      "pupupu.AdminPanel.Dal/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.0",
+          "Microsoft.EntityFrameworkCore": "8.0.0",
+          "pupupu.Core": "1.0.0",
+          "pupupu.Dal": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/pupupu.AdminPanel.Dal.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/pupupu.AdminPanel.Dal.dll": {}
+        }
+      },
       "pupupu.Bll/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "pupupu.AdminPanel.Bll": "1.0.0",
           "pupupu.Core": "1.0.0",
           "pupupu.Dal": "1.0.0"
         },
@@ -2327,6 +2360,7 @@
           "Microsoft.EntityFrameworkCore": "8.0.0",
           "Microsoft.EntityFrameworkCore.Sqlite": "8.0.0",
           "NUnit": "4.2.2",
+          "pupupu.AdminPanel.Dal": "1.0.0",
           "pupupu.Bll": "1.0.0"
         },
         "compile": {
@@ -6930,6 +6964,16 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "pupupu.AdminPanel.Bll/1.0.0": {
+      "type": "project",
+      "path": "../pupupu.AdminPanel.Bll/pupupu.AdminPanel.Bll.csproj",
+      "msbuildProject": "../pupupu.AdminPanel.Bll/pupupu.AdminPanel.Bll.csproj"
+    },
+    "pupupu.AdminPanel.Dal/1.0.0": {
+      "type": "project",
+      "path": "../pupupu.AdminPanel.Dal/pupupu.AdminPanel.Dal.csproj",
+      "msbuildProject": "../pupupu.AdminPanel.Dal/pupupu.AdminPanel.Dal.csproj"
     },
     "pupupu.Bll/1.0.0": {
       "type": "project",
