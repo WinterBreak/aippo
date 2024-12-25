@@ -1,0 +1,12 @@
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/bin/Debug/net8.0/pupupu.Core.deps.json
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/bin/Debug/net8.0/pupupu.Core.dll
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/bin/Debug/net8.0/pupupu.Core.pdb
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/obj/Debug/net8.0/pupupu.Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/obj/Debug/net8.0/pupupu.Core.AssemblyInfoInputs.cache
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/obj/Debug/net8.0/pupupu.Core.AssemblyInfo.cs
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/obj/Debug/net8.0/pupupu.Core.csproj.CoreCompileInputs.cache
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/obj/Debug/net8.0/pupupu.Core.sourcelink.json
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/obj/Debug/net8.0/pupupu.Core.dll
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/obj/Debug/net8.0/refint/pupupu.Core.dll
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/obj/Debug/net8.0/pupupu.Core.pdb
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/obj/Debug/net8.0/ref/pupupu.Core.dll
