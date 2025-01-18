@@ -317,41 +317,12 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "pupupu.AdminPanel.Bll/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "dependencies": {
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.0",
-          "pupupu.AdminPanel.Dal": "1.0.0",
-          "pupupu.Core": "1.0.0",
-          "pupupu.Dal": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/pupupu.AdminPanel.Bll.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/pupupu.AdminPanel.Bll.dll": {}
-        }
-      },
-      "pupupu.AdminPanel.Dal/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "dependencies": {
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.0",
-          "Microsoft.EntityFrameworkCore": "8.0.0",
-          "pupupu.Core": "1.0.0",
-          "pupupu.Dal": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/pupupu.AdminPanel.Dal.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/pupupu.AdminPanel.Dal.dll": {}
-        }
-      },
       "pupupu.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.Extensions.Identity.Core": "8.0.0"
+        },
         "compile": {
           "bin/placeholder/pupupu.Core.dll": {}
         },
@@ -860,16 +831,6 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "pupupu.AdminPanel.Bll/1.0.0": {
-      "type": "project",
-      "path": "../pupupu.AdminPanel.Bll/pupupu.AdminPanel.Bll.csproj",
-      "msbuildProject": "../pupupu.AdminPanel.Bll/pupupu.AdminPanel.Bll.csproj"
-    },
-    "pupupu.AdminPanel.Dal/1.0.0": {
-      "type": "project",
-      "path": "../pupupu.AdminPanel.Dal/pupupu.AdminPanel.Dal.csproj",
-      "msbuildProject": "../pupupu.AdminPanel.Dal/pupupu.AdminPanel.Dal.csproj"
-    },
     "pupupu.Core/1.0.0": {
       "type": "project",
       "path": "../pupupu.Core/pupupu.Core.csproj",
@@ -883,7 +844,6 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "pupupu.AdminPanel.Bll >= 1.0.0",
       "pupupu.Core >= 1.0.0",
       "pupupu.Dal >= 1.0.0"
     ]
@@ -913,9 +873,6 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/pupupu.AdminPanel.Bll.csproj": {
-              "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/pupupu.AdminPanel.Bll.csproj"
-            },
             "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/pupupu.Core.csproj": {
               "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/pupupu.Core.csproj"
             },

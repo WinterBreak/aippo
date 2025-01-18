@@ -80,3 +80,5 @@
 /Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Web/obj/Debug/net8.0/pupupu.AdminPanel.Web.pdb
 /Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Web/obj/Debug/net8.0/pupupu.AdminPanel.Web.genruntimeconfig.cache
 /Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Web/obj/Debug/net8.0/ref/pupupu.AdminPanel.Web.dll
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Web/bin/Debug/net8.0/Castle.Core.dll
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Web/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Proxies.dll

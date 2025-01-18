@@ -29,6 +29,9 @@
               "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Dal/pupupu.AdminPanel.Dal.csproj": {
                 "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Dal/pupupu.AdminPanel.Dal.csproj"
               },
+              "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Bll/pupupu.Bll.csproj": {
+                "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Bll/pupupu.Bll.csproj"
+              },
               "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/pupupu.Core.csproj": {
                 "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/pupupu.Core.csproj"
               },
@@ -131,6 +134,10 @@
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Proxies": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             }
           },
           "imports": [
@@ -175,6 +182,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/pupupu.AdminPanel.Bll.csproj": {
+                "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/pupupu.AdminPanel.Bll.csproj"
+              },
               "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Web/pupupu.Web.csproj": {
                 "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Web/pupupu.Web.csproj"
               }
@@ -271,9 +281,6 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/pupupu.AdminPanel.Bll.csproj": {
-                "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/pupupu.AdminPanel.Bll.csproj"
-              },
               "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/pupupu.Core.csproj": {
                 "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/pupupu.Core.csproj"
               },
@@ -355,6 +362,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -471,6 +484,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/pupupu.AdminPanel.Bll.csproj": {
+                "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/pupupu.AdminPanel.Bll.csproj"
+              },
               "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Dal/pupupu.AdminPanel.Dal.csproj": {
                 "projectPath": "/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Dal/pupupu.AdminPanel.Dal.csproj"
               },

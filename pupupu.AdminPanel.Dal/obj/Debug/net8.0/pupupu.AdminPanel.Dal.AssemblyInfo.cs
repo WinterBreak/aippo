@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("pupupu.AdminPanel.Dal")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+731eccee33c5eabe1719eb2df6f54782ba02f39a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e35f800ae0e96200b414a4f585e116d775e89375")]
 [assembly: System.Reflection.AssemblyProductAttribute("pupupu.AdminPanel.Dal")]
 [assembly: System.Reflection.AssemblyTitleAttribute("pupupu.AdminPanel.Dal")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

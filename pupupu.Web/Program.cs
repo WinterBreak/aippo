@@ -9,7 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 // добавления сервисов в контейнер
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<BookOrderSystemContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty
+    options.UseLazyLoadingProxies()
+        .UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty
     , b => b.MigrationsAssembly("pupupu.Web")));
 
 builder.Services.Configure<IdentityOptions>(options =>

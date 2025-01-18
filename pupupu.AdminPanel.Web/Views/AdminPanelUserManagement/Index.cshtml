@@ -17,7 +17,7 @@ ViewData["Title"] = "Список пользователей";
 </div>
 
 <!-- Кнопка "Добавить пользователя" -->
-<a data-url="@Url.Action("Register", "AdminPanel")" id="create-user-button" class="btn btn-primary">Добавить пользователя</a>
+<a data-url="@Url.Action("Register", "AdminPanelUserManagement")" id="create-user-button" class="btn btn-primary">Добавить пользователя</a>
 
 
 <div id="userListContainer">
@@ -33,7 +33,7 @@ ViewData["Title"] = "Список пользователей";
     $(document).ready(function () {
         $('#userTypeFilter').on('change', function () {
             var userType = $(this).val();
-            var url = '@Url.Action("UserList", "AdminPanel")';
+            var url = '@Url.Action("UserList", "AdminPanelUserManagement")';
             $.ajax({
                 url: url,
                 method: 'GET',

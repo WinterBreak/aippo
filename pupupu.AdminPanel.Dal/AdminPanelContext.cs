@@ -9,7 +9,6 @@ public class AdminPanelContext: IdentityDbContext<User>
     public AdminPanelContext(DbContextOptions<AdminPanelContext> options)
         : base(options)
     {
-        
     }
 
     protected override void OnModelCreating(ModelBuilder builder)

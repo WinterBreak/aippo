@@ -6,7 +6,7 @@
         <button class="close" data-dismiss="modal" area-hidden="true">X</button>
     </div>
     <div class="modal-body">
-        <form asp-controller="AdminPanel" asp-action="EditUserSubmit" method="post">
+        <form asp-controller="AdminPanelUserManagement" asp-action="EditUserSubmit" method="post">
             <input type="hidden" asp-for="Id"/>
             <div class="form-group">
                 <label asp-for="UserName" class="col-form-label"></label>

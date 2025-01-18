@@ -25,6 +25,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\pupupu.AdminPanel.Bll\pupupu.AdminPanel.Bll.csproj" />
       <ProjectReference Include="..\pupupu.Web\pupupu.Web.csproj" />
     </ItemGroup>
 

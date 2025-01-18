@@ -18,3 +18,5 @@
 /Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/obj/Debug/net8.0/refint/pupupu.AdminPanel.Bll.dll
 /Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/obj/Debug/net8.0/pupupu.AdminPanel.Bll.pdb
 /Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/obj/Debug/net8.0/ref/pupupu.AdminPanel.Bll.dll
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/bin/Debug/net8.0/pupupu.Bll.dll
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/bin/Debug/net8.0/pupupu.Bll.pdb

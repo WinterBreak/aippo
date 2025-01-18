@@ -3,13 +3,20 @@ using AdminPanel.Dal;
 using AdminPanel.Web;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using pupupu.Bll.Services;
+using pupupu.Dal.Repositories;
+using pupupu.Web.Common;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AdminPanelContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty
+    options.UseLazyLoadingProxies()
+        .UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty
         , b => b.MigrationsAssembly("pupupu.Web")));
+builder.Services.AddDbContext<BookOrderSystemContext>(options =>
+    options.UseLazyLoadingProxies()
+        .UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<AdminPanelContext>()
@@ -38,11 +45,12 @@ builder.Services.Configure<IdentityOptions>(options =>
 
 builder.Services.AddControllersWithViews();
 
-// регистрация репозиториев 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-// регистрация сервисов
+builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddScoped<IBookServiceInterface, BookService>();
 builder.Services.AddScoped<IAdminPanelUserManagementService, AdminPanelUserManagementService>();
 builder.Services.AddScoped<IAdminPanelUserManagementVmBuilder, AdminPanelUserManagementVmBuilder>();
+builder.Services.AddScoped<IAdminPanelBooksManagement, AdminPanelBooksManagement>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

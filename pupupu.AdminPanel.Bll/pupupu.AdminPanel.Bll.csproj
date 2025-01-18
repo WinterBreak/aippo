@@ -16,6 +16,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\pupupu.AdminPanel.Dal\pupupu.AdminPanel.Dal.csproj" />
+      <ProjectReference Include="..\pupupu.Bll\pupupu.Bll.csproj" />
       <ProjectReference Include="..\pupupu.Core\pupupu.Core.csproj" />
       <ProjectReference Include="..\pupupu.Dal\pupupu.Dal.csproj" />
     </ItemGroup>

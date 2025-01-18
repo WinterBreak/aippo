@@ -15,11 +15,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <AdditionalFiles Include="Views\AdminPanel\CreateUser.cshtml" />
-      <AdditionalFiles Include="Views\AdminPanel\EditUser.cshtml" />
-      <AdditionalFiles Include="Views\AdminPanel\Index.cshtml" />
-      <AdditionalFiles Include="Views\AdminPanel\Login.cshtml" />
-      <AdditionalFiles Include="Views\AdminPanel\UserList.cshtml" />
+      <AdditionalFiles Include="Views\AdminPanelUserManagement\CreateUser.cshtml" />
+      <AdditionalFiles Include="Views\AdminPanelUserManagement\EditUser.cshtml" />
+      <AdditionalFiles Include="Views\AdminPanelUserManagement\Index.cshtml" />
+      <AdditionalFiles Include="Views\AdminPanelUserManagement\Login.cshtml" />
+      <AdditionalFiles Include="Views\AdminPanelUserManagement\UserList.cshtml" />
     </ItemGroup>
 
 </Project>

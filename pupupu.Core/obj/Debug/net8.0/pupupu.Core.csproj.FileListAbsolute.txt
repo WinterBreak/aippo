@@ -10,3 +10,4 @@
 /Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/obj/Debug/net8.0/refint/pupupu.Core.dll
 /Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/obj/Debug/net8.0/pupupu.Core.pdb
 /Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/obj/Debug/net8.0/ref/pupupu.Core.dll
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.Core/obj/Debug/net8.0/pupupu.Core.csproj.AssemblyReference.cache

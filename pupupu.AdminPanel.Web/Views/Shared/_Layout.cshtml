@@ -18,19 +18,21 @@
             <ul class="navbar-nav">
                 @if (User.Identity.IsAuthenticated)
                 {
-                <li class="nav-item">
-                    <form method="post" asp-controller="User" asp-action="Logout" class="form-inline">
-                        <button type="submit" class="nav-link btn btn-link">Logout</button>
-                    </form>
-                </li>
+                    <li class="nav-item">
+                        <form method="post" asp-controller="User" asp-action="Logout" class="form-inline">
+                            <button type="submit" class="nav-link btn btn-link">Logout</button>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index", "AdminPanelUserManagement")" class="nav-link">Users</a>
+                    </li> <li class="nav-item">
+                        <a href="@Url.Action("List", "AdminPanelBooksManagement")" class="nav-link">Books</a>
+                    </li>
                 }
                 else
                 {
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="User" asp-action="Login">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="@Url.Action("Index", "AdminPanel")" class="nav-link">AdminPanel</a>
                     </li>
                 }
             </ul>

@@ -1,0 +1,34 @@
+@model List<pupupu.Bll.Models.Book>
+
+@{
+ViewData["Title"] = "Books";
+}
+
+<h2>Books Management</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Название</th>
+        <th>Автор</th>
+        <th>Описание</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var book  in Model)
+    {
+    <tr>
+        <td>@book.Title</td>
+        <td>@book.Author.Name</td>
+        <td>@book.Description</td>
+        <td>
+            <form action="@Url.Action("Delete", "AdminPanelBooksManagement")" method="post" style="display:inline;">
+                <input asp-for="@book.Id" name="BookId" type="hidden" value="@book.Id" />
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </td>
+    </tr>
+    }
+    </tbody>
+</table>

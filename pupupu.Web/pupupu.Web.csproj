@@ -32,6 +32,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\pupupu.AdminPanel.Bll\pupupu.AdminPanel.Bll.csproj" />
       <ProjectReference Include="..\pupupu.AdminPanel.Dal\pupupu.AdminPanel.Dal.csproj" />
       <ProjectReference Include="..\pupupu.Bll\pupupu.Bll.csproj" />
     </ItemGroup>

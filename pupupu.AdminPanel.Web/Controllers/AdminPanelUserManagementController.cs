@@ -4,20 +4,19 @@ using AdminPanel.Web;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using pupupu.Bll.Services;
 using pupupu.Bll.Dto;
 
 namespace pupupu.Web.Controllers;
 
-[Route("AdminPanel")]
-public class AdminPanelController: Controller
+[Route("AdminPanel/UsersManagement")]
+public class AdminPanelUserManagementController: Controller
 {
     private readonly UserManager<User> _userManager;
     private readonly SignInManager<User> _signInManager;
     private readonly IAdminPanelUserManagementService _service;
     private readonly IAdminPanelUserManagementVmBuilder _adminPanelUserManagementVmBuilder;
 
-    public AdminPanelController(UserManager<User> userManager
+    public AdminPanelUserManagementController(UserManager<User> userManager
         , SignInManager<User> signInManager
         , IAdminPanelUserManagementService service
         , IAdminPanelUserManagementVmBuilder adminPanelUserManagementVmBuilder)
