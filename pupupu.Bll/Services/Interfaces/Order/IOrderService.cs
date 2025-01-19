@@ -6,9 +6,19 @@ namespace pupupu.Bll.Services;
 
 public interface IOrderService
 {
-    Errors ProcessOrder(int orderId);
+    List<OrderItem> GetOrderItemsFromSession();
+
+    void SaveOrderToSession(List<OrderItem> order);
+
+    void AddToOrder(int bookId);
+
+    void ClearOrder();
+
+    void RemoveFromOrder(int bookId);
     
-    Errors CancelOrder(int orderId);
+    Errors ProcessOrder(OrderQuery query);
+    
+    Errors CancelOrder(OrderQuery query);
     
     List<Order> GetOrders(OrderQuery query);
     

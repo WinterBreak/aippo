@@ -17,7 +17,7 @@ public class OrderHistoryRepository: IOrderHistoryRepository
         return _dbContext.OrderHistories;
     }
 
-    public IQueryable<OrderHistory> GetOrderHistoriesByUserId(int userId)
+    public IQueryable<OrderHistory> GetOrderHistoriesByUserId(string userId)
     {
         return _dbContext.OrderHistories.Where(o => o.UserId == userId);
     }
