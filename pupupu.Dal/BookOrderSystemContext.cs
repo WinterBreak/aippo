@@ -16,6 +16,8 @@ public class BookOrderSystemContext: DbContext
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
+        builder.ApplyConfigurationsFromAssembly(typeof(BookOrderSystemContext).Assembly);
+        builder.HasDefaultSchema("public");
          builder.Entity<BooksToOrderHistoryLinks>()
             .HasKey(p => new { p.BookId, p.OrderId });
     }

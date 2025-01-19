@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using pupupu.Web.Common;
 using pupupu.Dal.Models;
 
@@ -14,17 +15,18 @@ public class OrderHistoryRepository: IOrderHistoryRepository
     
     public IQueryable<OrderHistory> GetAllOrderHistories()
     {
-        return _dbContext.OrderHistories;
+        return _dbContext.OrderHistories
+            .Include(o => o.BooksToOrderHistoryLinks);
     }
 
     public IQueryable<OrderHistory> GetOrderHistoriesByUserId(string userId)
     {
-        return _dbContext.OrderHistories.Where(o => o.UserId == userId);
+        return GetAllOrderHistories().Where(o => o.UserId == userId);
     }
 
     public OrderHistory GetOrderHistoryById(int id)
     {
-        return _dbContext.OrderHistories.SingleOrDefault(o => o.Id == id);
+        return GetAllOrderHistories().SingleOrDefault(o => o.Id == id);
     }
 
     public OrderHistory CreateOrderHistory()

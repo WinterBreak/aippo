@@ -27,7 +27,8 @@ public class AdminPanelUserManagementController: Controller
         _adminPanelUserManagementVmBuilder = adminPanelUserManagementVmBuilder;
     }
 
-    public IActionResult Index()
+    [Authorize]
+    public IActionResult List()
     {
         var userList = _adminPanelUserManagementVmBuilder.GetUserListVm(new UserListQuery());
         return View(userList);
@@ -63,9 +64,17 @@ public class AdminPanelUserManagementController: Controller
         return PartialView("CreateUser", new AdminRegisterViewModel());
     }
     
-    [HttpPost("Login")]
+    [HttpGet]
+    [AllowAnonymous]
+    public IActionResult Login(string returnUrl = null)
+    {
+        ViewData["ReturnUrl"] = returnUrl;
+        return View();
+    }
+    
     [AllowAnonymous]
     [ValidateAntiForgeryToken]
+    [HttpPost]
     public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
     {
         ViewData["ReturnUrl"] = returnUrl;
@@ -77,7 +86,7 @@ public class AdminPanelUserManagementController: Controller
             {
                 return Url.IsLocalUrl(returnUrl) 
                     ? Redirect(returnUrl)
-                    : RedirectToAction(nameof(HomeController.Index), "Home");
+                    : RedirectToAction("List");
             }
             else
             {
@@ -95,7 +104,7 @@ public class AdminPanelUserManagementController: Controller
     public async Task<IActionResult> Logout()
     {
         await _signInManager.SignOutAsync();
-        return RedirectToAction(nameof(HomeController.Index), "Home");
+        return RedirectToAction("Login");
     }
 
     [HttpGet("UserList")]

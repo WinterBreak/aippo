@@ -2,9 +2,11 @@
 /Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/bin/Debug/net8.0/pupupu.AdminPanel.Bll.dll
 /Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/bin/Debug/net8.0/pupupu.AdminPanel.Bll.pdb
 /Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/bin/Debug/net8.0/pupupu.AdminPanel.Dal.dll
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/bin/Debug/net8.0/pupupu.Bll.dll
 /Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/bin/Debug/net8.0/pupupu.Core.dll
 /Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/bin/Debug/net8.0/pupupu.Dal.dll
 /Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/bin/Debug/net8.0/pupupu.AdminPanel.Dal.pdb
+/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/bin/Debug/net8.0/pupupu.Bll.pdb
 /Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/bin/Debug/net8.0/pupupu.Core.pdb
 /Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/bin/Debug/net8.0/pupupu.Dal.pdb
 /Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/obj/Debug/net8.0/pupupu.AdminPanel.Bll.csproj.AssemblyReference.cache
@@ -18,5 +20,3 @@
 /Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/obj/Debug/net8.0/refint/pupupu.AdminPanel.Bll.dll
 /Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/obj/Debug/net8.0/pupupu.AdminPanel.Bll.pdb
 /Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/obj/Debug/net8.0/ref/pupupu.AdminPanel.Bll.dll
-/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/bin/Debug/net8.0/pupupu.Bll.dll
-/Users/elizavetalozkina/RiderProjects/pupupu/pupupu.AdminPanel.Bll/bin/Debug/net8.0/pupupu.Bll.pdb

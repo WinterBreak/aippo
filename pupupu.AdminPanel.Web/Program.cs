@@ -11,12 +11,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AdminPanelContext>(options =>
-    options.UseLazyLoadingProxies()
-        .UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty
-        , b => b.MigrationsAssembly("pupupu.Web")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty
+        , b => b.MigrationsAssembly("pupupu.AdminPanel.Web")));
 builder.Services.AddDbContext<BookOrderSystemContext>(options =>
-    options.UseLazyLoadingProxies()
-        .UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
 builder.Services.AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<AdminPanelContext>()
@@ -42,15 +41,14 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.SignIn.RequireConfirmedEmail = false;
 });
 
-
-builder.Services.AddControllersWithViews();
-
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IBookRepository, BookRepository>();
 builder.Services.AddScoped<IBookServiceInterface, BookService>();
-builder.Services.AddScoped<IAdminPanelUserManagementService, AdminPanelUserManagementService>();
 builder.Services.AddScoped<IAdminPanelUserManagementVmBuilder, AdminPanelUserManagementVmBuilder>();
+builder.Services.AddScoped<IAdminPanelUserManagementService, AdminPanelUserManagementService>();
 builder.Services.AddScoped<IAdminPanelBooksManagement, AdminPanelBooksManagement>();
+
+builder.Services.AddControllersWithViews();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

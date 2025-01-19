@@ -2,7 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using pupupu.Dal.Models;
 
-namespace pupupu.Web.Controllers;
+namespace AdminPanel.Web.Controllers;
 
 public class HomeController : Controller
 {

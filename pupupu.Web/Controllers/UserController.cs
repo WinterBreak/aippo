@@ -4,7 +4,6 @@ using AdminPanel.Web;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using pupupu.Bll.Services;
 
 namespace pupupu.Web.Controllers;
 
@@ -42,7 +41,7 @@ public class UserController: Controller
             {
                 return Url.IsLocalUrl(returnUrl) 
                     ? Redirect(returnUrl)
-                    : RedirectToAction(nameof(HomeController.Index), "Home");
+                    : RedirectToAction(nameof(BookController.Index), "Home");
             }
             else
             {
@@ -90,6 +89,6 @@ public class UserController: Controller
     public async Task<IActionResult> Logout()
     {
         await _signInManager.SignOutAsync();
-        return RedirectToAction(nameof(HomeController.Index), "Home");
+        return RedirectToAction(nameof(BookController.Index), "Home");
     }
 }

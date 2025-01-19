@@ -19,9 +19,12 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                 <li class="nav-item">
-                    <form method="post" asp-controller="User" asp-action="Logout" class="form-inline">
+                    <form method="post" asp-controller="AdminPanelUserManagement" asp-action="Logout" class="form-inline">
                         <button type="submit" class="nav-link btn btn-link">Logout</button>
                     </form>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Book" asp-action="List">Books</a>
                 </li>
                 }
                 else
