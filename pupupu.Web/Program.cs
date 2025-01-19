@@ -8,6 +8,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // добавления сервисов в контейнер
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 builder.Services.AddDbContext<BookOrderSystemContext>(options =>
     options.UseLazyLoadingProxies()
         .UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty
@@ -55,7 +62,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 

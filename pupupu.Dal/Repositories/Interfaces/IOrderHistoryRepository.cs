@@ -6,7 +6,7 @@ public interface IOrderHistoryRepository
 {
     IQueryable<OrderHistory> GetAllOrderHistories();
 
-    IQueryable<OrderHistory> GetOrderHistoriesByUserId(int userId);
+    IQueryable<OrderHistory> GetOrderHistoriesByUserId(string userId);
     
     OrderHistory GetOrderHistoryById(int id);
 
