@@ -27,6 +27,12 @@ public class BookService: IBookServiceInterface
         return dalBooks.Select(b => new Book(b)).ToList();
     }
 
+    public List<Book> GetBooksByIds(IEnumerable<int> ids)
+    {
+        var books = _bookRepository.GetBooksByIds(ids);
+        return books.Select(b => new Book(b)).ToList();
+    }
+
     public Book GetBookById(int bookId)
     {
         var dalBook = _bookRepository.GetBookById(bookId);

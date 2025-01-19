@@ -8,6 +8,8 @@ public interface IOrderService
 {
     List<OrderItem> GetOrderItemsFromSession();
 
+    List<Book> GetOrderFromSession();
+
     void SaveOrderToSession(List<OrderItem> order);
 
     void AddToOrder(int bookId);
@@ -20,7 +22,7 @@ public interface IOrderService
     
     Errors CancelOrder(OrderQuery query);
     
-    List<Order> GetOrders(OrderQuery query);
+    List<Order> GetOrders();
     
     Order GetOrderById(int orderId);
     

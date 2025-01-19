@@ -7,6 +7,12 @@ public class BooksToOrderHistoryLinks
         this.BookId = bookId;
         this.OrderId = orderId;
     }
+    
+    public BooksToOrderHistoryLinks(int bookId, OrderHistory orderHistory)
+    {
+        this.BookId = bookId;
+        this.OrderHistory = orderHistory;
+    }
 
     public BooksToOrderHistoryLinks(Book book, OrderHistory orderHistory)
     {

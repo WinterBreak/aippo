@@ -1,0 +1,51 @@
+@model List<pupupu.Bll.Models.Book>
+
+@{
+    ViewData["Title"] = "Корзина";
+}
+
+<h2>Ваш заказ</h2>
+
+@if (Model.Any())
+{
+<ul id="book-list">
+    @foreach (var book in Model)
+    {
+    <li id="book-@book.Id">
+        @book.Title - @book.Author.Name
+        <button class="remove-book" data-book-id="@book.Id">Удалить</button>
+    </li>
+    }
+</ul>
+
+<button id="place-order">Сделать заказ</button>
+}
+else
+{
+<p>Вы пока не выбрали ни одной книги.</p>
+}
+
+@section Scripts {
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Обработка удаления книги
+        $(".remove-book").click(function () {
+            var bookId = $(this).data("book-id");
+
+            $.post("/Order/RemoveFromOrder", { bookId: bookId }, function (data) {
+                if (data.success) {
+                    $("#book-" + bookId).remove();
+                }
+            });
+        });
+
+        // Обработка оформления заказа
+        $("#place-order").click(function () {
+            $.post("/Order/ProcessOrder", function () {
+                window.location.href = "/Order/Order";
+            });
+        });
+    });
+</script>
+}

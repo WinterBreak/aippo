@@ -16,7 +16,9 @@ public class OrderHistoryRepository: IOrderHistoryRepository
     public IQueryable<OrderHistory> GetAllOrderHistories()
     {
         return _dbContext.OrderHistories
-            .Include(o => o.BooksToOrderHistoryLinks);
+            .Include(o => o.BooksToOrderHistoryLinks)
+            .ThenInclude(oh => oh.Book)
+            .ThenInclude(oh => oh.Author);
     }
 
     public IQueryable<OrderHistory> GetOrderHistoriesByUserId(string userId)
@@ -36,6 +38,7 @@ public class OrderHistoryRepository: IOrderHistoryRepository
 
     public void AddOrderHistory(OrderHistory orderHistory)
     {
+        _dbContext.BooksToOrderHistoryLinks.AddRange(orderHistory.BooksToOrderHistoryLinks);
         _dbContext.Add(orderHistory);
     }
 

@@ -1,0 +1,41 @@
+@model List<pupupu.Bll.Models.Order>
+
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<h2>Orders Management</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Номер заказа</th>
+        <th>Пользователь</th>
+        <th>Дата</th>
+        <th>Статус</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var order  in Model)
+    {
+        <tr>
+            <td>@order.Id</td>
+            <td>Пользователь</td>
+            <td>@order.OrderDate</td>
+            <td>@order.OrderStatus</td>
+            <td>
+                <form asp-controller="AdminPanelOrdersManagement" asp-action="ProcessOrder" asp-route-id="@order.Id" method="post">
+                    <button type="submit" class="btn btn-danger">Process</button>
+                </form>
+            </td>
+            <td>
+                <form asp-controller="AdminPanelOrdersManagement" asp-action="CancelOrder" asp-route-id="@order.Id" method="post">
+                    <button type="submit" class="btn btn-danger">Cancel</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

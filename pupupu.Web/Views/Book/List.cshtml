@@ -23,7 +23,7 @@ ViewData["Title"] = "Books";
         <td>@book.Author.Name</td>
         <td>@book.Description</td>
         <td>
-            <form action="@Url.Action("AddToOrder", "OrderController")" method="post" style="display:inline;">
+            <form action="@Url.Action("AddToOrder", "Order")" method="post" style="display:inline;">
                 <input asp-for="@book.Id" name="BookId" type="hidden" value="@book.Id" />
                 <button type="submit" class="btn btn-danger">Добавить</button>
             </form>

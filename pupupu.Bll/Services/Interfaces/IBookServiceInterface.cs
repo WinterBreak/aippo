@@ -9,6 +9,8 @@ public interface IBookServiceInterface
     List<Book> GetBooksByAuthorId(int authorId);
 
     Book GetBookById(int bookId);
+    
+    List<Book> GetBooksByIds(IEnumerable<int> ids);
 
     Book CreateBook(Book newBook);
 

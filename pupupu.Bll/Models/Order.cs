@@ -23,7 +23,7 @@ public class Order
 
     public Order(DAL.OrderHistory fromValue)
     {
-        this._state = new ActiveOrderState();
+        this._state = new WaitingOrderState();
         this.Id = fromValue.Id;
         this.UserId = fromValue.UserId;
         this.OrderDate = fromValue.OrderDate;
@@ -35,7 +35,7 @@ public class Order
 
     public Order()
     {
-        this._state = new ActiveOrderState();
+        this._state = new WaitingOrderState();
         this.OrderStatus = OrderStatus.Waiting;
     }
 
@@ -46,6 +46,6 @@ public class Order
 
     public Errors CancelOrder()
     {
-        return this._state.Process(this);
+        return this._state.Cancel(this);
     }
 }

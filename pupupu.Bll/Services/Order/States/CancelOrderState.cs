@@ -15,7 +15,11 @@ public class CancelOrderState: IOrderState
     public Errors Cancel(Order order)
     {
         var errors = new Errors();
-        errors.AddMainError("Order is already cancelled");
+        if (order.OrderStatus == OrderStatus.Canceled)
+        {
+            errors.AddMainError("Order is already cancelled");  
+        }
+        order.OrderStatus = OrderStatus.Canceled;
         return errors;
     }
 }

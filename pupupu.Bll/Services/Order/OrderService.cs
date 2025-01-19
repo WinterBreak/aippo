@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using pupupu.Core;
 using pupupu.Bll.Dto;
 using pupupu.Dal.Repositories;
@@ -5,6 +6,7 @@ using pupupu.Bll.Services;
 using pupupu.Bll.Models;
 using DAL = pupupu.Dal.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 
 namespace pupupu.Bll;
 
@@ -14,24 +16,34 @@ public class OrderService: IOrderService
     private readonly IOrderHistoryRepository _orderHistoryRepository;
     private readonly IBookRepository _bookRepository;
     private readonly IHttpContextAccessor _httpContextAccessor;
+    private readonly IBookServiceInterface _bookService;
 
     public OrderService(IOrderHistoryRepository orderHistoryRepository
         , IBookRepository bookRepository
-        , IHttpContextAccessor httpContextAccessor)
+        , IHttpContextAccessor httpContextAccessor
+        , IBookServiceInterface bookService)
     {
         _orderHistoryRepository = orderHistoryRepository;
         _bookRepository = bookRepository;
         _httpContextAccessor = httpContextAccessor;
+        _bookService = bookService;
     }
     
     // TODO использовать rich модель для Order. тут получать заказ из репо и использовать декоратор
     public List<OrderItem> GetOrderItemsFromSession()
     {
         var session = _httpContextAccessor.HttpContext.Session;
-        var order = session.Get<List<OrderItem>>(OrderSessionKey) ?? new List<OrderItem>();
-        return order;
+        var orderItems = session.Get<List<OrderItem>>(OrderSessionKey) ?? new List<OrderItem>();
+        return orderItems;
     }
 
+    public List<Book> GetOrderFromSession()
+    {
+        var orderItems = GetOrderItemsFromSession();
+        var bookIds = orderItems.Select(x => x.BookId).Distinct();
+        return _bookService.GetBooksByIds(bookIds);
+    }
+    
     public void SaveOrderToSession(List<OrderItem> order)
     {
         var session = _httpContextAccessor.HttpContext.Session;
@@ -82,15 +94,18 @@ public class OrderService: IOrderService
             dalOrder = AddNewDalOrder(query);
         }
         
-        var order = new Order(dalOrder);
-        var errors = order.ProcessOrderState();
+        var newDalOrder = _orderHistoryRepository.GetOrderHistoryById(dalOrder.Id);
+        var order = new Order(newDalOrder);
+        var orderDecorator = new EmailNotificationOrderDecorator(new SmsNotificationOrderDecoration(order));
+        var errors = orderDecorator.Process();
         if (errors.HasErrors)
         {
             return errors;
         }
-        
-        var orderDecorator = new EmailNotificationOrderDecorator(new SmsNotificationOrderDecoration(order));
-        errors = orderDecorator.Process();
+
+        order.ProcessOrderState();
+        newDalOrder.Status = (int)order.OrderStatus;
+        _orderHistoryRepository.SaveChanges();
         return errors;
     }
 
@@ -107,11 +122,14 @@ public class OrderService: IOrderService
         }
         
         var orderDecorator = new EmailNotificationOrderDecorator(new SmsNotificationOrderDecoration(order));
-        errors = orderDecorator.Process();
+        errors = orderDecorator.CancelOrder();
+        
+        dalOrder.Status = (int)order.OrderStatus;
+        _orderHistoryRepository.SaveChanges();
         return errors;
     }
 
-    public List<Order> GetOrders(OrderQuery query)
+    public List<Order> GetOrders()
     {
         var dalOrders = _orderHistoryRepository.GetAllOrderHistories();
         return dalOrders.Select(o => new Order(o)).ToList();
@@ -174,11 +192,13 @@ public class OrderService: IOrderService
     {
         var newDalOrder = _orderHistoryRepository.CreateOrderHistory();
         newDalOrder.OrderDate = DateTime.UtcNow;
-        newDalOrder.UserId = query.UserId;
+        newDalOrder.UserId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
         var orderItems = GetOrderItemsFromSession();
         newDalOrder.BooksToOrderHistoryLinks = orderItems
-            .Select(x => new DAL.BooksToOrderHistoryLinks(x.BookId, query.OrderId))
+            .Select(x => new DAL.BooksToOrderHistoryLinks(x.BookId, newDalOrder))
             .ToList();
+        _orderHistoryRepository.AddOrderHistory(newDalOrder);
+        _orderHistoryRepository.SaveChanges();
         return newDalOrder;
     }
 }

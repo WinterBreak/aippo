@@ -3,6 +3,7 @@ using AdminPanel.Dal;
 using AdminPanel.Web;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using pupupu.Bll;
 using pupupu.Web.Common;
 using pupupu.Dal.Repositories;
 using pupupu.Bll.Services;
@@ -54,6 +55,8 @@ builder.Services.Configure<IdentityOptions>(options =>
 builder.Services.AddControllersWithViews();
 
 // регистрация репозиториев 
+builder.Services.AddScoped<IOrderHistoryRepository, OrderHistoryRepository>();
+builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAdminPanelUserManagementService, AdminPanelUserManagementService>();
 builder.Services.AddScoped<IAdminPanelBooksManagement, AdminPanelBooksManagement>();
