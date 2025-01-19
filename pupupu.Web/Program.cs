@@ -1,3 +1,6 @@
+using AdminPanel.Bll;
+using AdminPanel.Dal;
+using AdminPanel.Web;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using pupupu.Web.Common;
@@ -16,10 +19,17 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 builder.Services.AddDbContext<BookOrderSystemContext>(options =>
-    options.UseLazyLoadingProxies()
-        .UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty
+    options
+        .UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty
     , b => b.MigrationsAssembly("pupupu.Web")));
+builder.Services.AddDbContext<AdminPanelContext>(options =>
+    options
+        .UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty
+            , b => b.MigrationsAssembly("pupupu.Web")));
 
+builder.Services.AddIdentity<User, IdentityRole>()
+    .AddEntityFrameworkStores<AdminPanelContext>()
+    .AddDefaultTokenProviders();
 builder.Services.Configure<IdentityOptions>(options =>
 {
     // Настройки пароля
@@ -44,6 +54,9 @@ builder.Services.Configure<IdentityOptions>(options =>
 builder.Services.AddControllersWithViews();
 
 // регистрация репозиториев 
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAdminPanelUserManagementService, AdminPanelUserManagementService>();
+builder.Services.AddScoped<IAdminPanelBooksManagement, AdminPanelBooksManagement>();
 builder.Services.AddScoped<IBookRepository, BookRepository>();
 // регистрация сервисов
 builder.Services.AddScoped<IBookServiceInterface, BookService>();
@@ -68,6 +81,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Book}/{action=Index}/{id?}");
 
 app.Run();

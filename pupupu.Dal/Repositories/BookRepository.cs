@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using pupupu.Web.Common;
 using pupupu.Dal.Models;
 
@@ -14,22 +15,24 @@ public class BookRepository: IBookRepository
     
     public IQueryable<Book> GetAllBooks()
     {
-        return _dbContext.Books;
+        return _dbContext.Books
+            .Include(b => b.Author)
+            .Include(b => b.BooksToOrderHistoryLinks);
     }
 
     public IQueryable<Book> GetBooksByAuthorId(int authorId)
     {
-        return _dbContext.Books.Where(b => b.AuthorId == authorId);
+        return GetAllBooks().Where(b => b.AuthorId == authorId);
     }
 
     public IQueryable<Book> GetBooksByIds(IEnumerable<int> ids)
     {
-        return _dbContext.Books.Where(b => ids.Contains(b.Id));
+        return GetAllBooks().Where(b => ids.Contains(b.Id));
     }
 
     public Book GetBookById(int id)
     {
-        return _dbContext.Books.SingleOrDefault(b => b.Id == id);
+        return GetAllBooks().SingleOrDefault(b => b.Id == id);
     }
 
     public Book CreateBook()

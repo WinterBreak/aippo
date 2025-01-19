@@ -20,7 +20,7 @@ public class AdminPanelBooksManagementController: Controller
         return View(bookList);
     }
 
-    [HttpPost("Delete/{bookId}")]
+    [HttpPost("AdminPanelBooksManagement/Delete/{bookId}")]
     public IActionResult Delete(int bookId)
     {
         _adminPanelBooksManagement.DeleteBook(bookId);

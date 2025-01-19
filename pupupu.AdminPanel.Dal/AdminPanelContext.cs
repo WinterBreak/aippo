@@ -13,6 +13,8 @@ public class AdminPanelContext: IdentityDbContext<User>
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
+        builder.ApplyConfigurationsFromAssembly(typeof(IdentityDbContext).Assembly);
+        builder.HasDefaultSchema("security");
         builder.Entity<User>().ToTable("Users");
         builder.Entity<IdentityUserLogin<string>>(entity =>
         {

@@ -19,5 +19,15 @@
         </library>
       </libraries>
     </data-source>
+    <data-source source="LOCAL" name="admin.db" uuid="2c8c8825-442d-410a-9a65-274e6b62fcf2">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/pupupu.AdminPanel.Web/admin.db</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
